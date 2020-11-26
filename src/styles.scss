@@ -1,0 +1,126 @@
+/* Add application styles & imports to this file! */
+
+@import './app/core/theme/theming';
+@import './app/core/theme/palette';
+@import './app//core//typography/typography.scss';
+@import './app/components/input/input-theme.scss';
+@import './app/components/input/input-theme.scss';
+@import './app//components//select/select-theme.component.scss';
+@import './app//components//layout/layout.theme.scss';
+@import './app/components/menu/menu-theme.scss';
+
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+.wrap {
+  display: flex;
+    justify-content: space-between;
+    width: 460px;
+    margin-top: 20px;
+}
+
+
+$primary: palette($primary);
+$accent:  palette($accent, A200, A100, A400);
+$warn:  palette($warn);
+
+$theme: theme($primary, $accent, $warn);
+$typography: typography-config();
+
+@mixin button-base {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  min-width: 80px;
+  line-height: 36px;
+  border-radius: 4px;
+  -webkit-tap-highlight-color: transparent;
+  border: 0px;
+}
+
+@mixin buttons-colors($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+
+  .button {
+    color: get-color($foreground, text);
+  }
+  
+  .button-primary {
+    color:  get-color($primary);
+  }
+  .button-primary-flat {
+    color:  get-color($primary, default-contrast);
+    background-color: get-color($primary);
+  }
+  .button-accent{
+    color:  get-color($accent);
+  }
+  .button-accent-flat {
+    color:  get-color($accent, default-contrast);
+    background-color: get-color($accent);
+  }
+  .button-warn{
+    color:  get-color($warn);
+  }
+  .button-warn-flat {
+    color:  get-color($warn, default-contrast);
+    background-color: get-color($warn);
+  }
+
+  .flatButton  {
+    &.button-primary{
+      color:  get-color($primary, default-contrast);
+      background-color: get-color($primary);
+    }
+    &.button-accent{
+      color:  get-color($accent, default-contrast);
+      background-color: get-color($accent);
+    }
+    &.button-warn{
+      color:  get-color($warn, default-contrast);
+      background-color: get-color($warn);
+    }
+  }
+  .button-disabled {
+    color:  get-color($foreground, disabled-button);
+    background-color: get-color($foreground, disabled-button);
+  }
+} 
+
+@mixin button-typography($config) {
+  $buttonConfig: map-get($config, button);
+  .button {
+    font: {
+      family: map-get($buttonConfig, font-family);
+      size: map-get($buttonConfig, font-size);
+      weight: map-get($buttonConfig, font-weight);
+    }
+  }
+}
+
+@mixin button-theme($theme, $config) {
+  @include buttons-colors($theme);
+  @include button-typography($config);
+}
+
+
+.button {
+   @include button-base;
+}
+
+@include button-theme($theme, $typography);
+
+@include input-theme($theme, $typography);
+
+@include layout-theme($theme);
+
+@include menu-theme($theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: "Roboto", "Helvetica Neue", sans-serif; }
+
+.cdk-overlay-dark-backdrop {
+  background: transparent !important;
+}

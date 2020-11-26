@@ -1,0 +1,30 @@
+@mixin menu-theme($theme) {
+
+  .menu {
+
+  }
+
+  .menu-collapsed {
+    width: 50px;
+  }
+
+  ul.menu  {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .menu-item {
+    display: flex;
+    padding: 16px;
+  }
+  
+  .menu-item:hover {
+    cursor: pointer;
+    background-color: blanchedalmond;
+  }
+
+  .menu-item img {
+    margin-right: 8px;
+  }
+}

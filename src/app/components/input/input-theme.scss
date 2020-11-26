@@ -1,0 +1,113 @@
+
+@import '../../core/theme/theming.scss';
+@import '../../core/typography/typography.scss';
+
+.sh-input {
+  background: #FFFFFF;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  border-radius: 0px;
+  padding: 4px 11px;
+  width: 100%;
+}
+.sh-input:focus {
+  border: none;
+  box-sizing: none;
+  outline: none;
+}
+
+.input-field-wrapper {
+  display: flex;
+}
+
+.input-wrapper {
+  width: 100%;
+}
+
+.input-field-affix {
+  border: 1px solid #d9d9d9;
+  border-right: none;
+  padding-left: 8px;
+  color: #626262;
+}
+
+.input-field-addOn{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0 11px;
+  color: rgba(0,0,0,.65);
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fafafa;
+  border: 1px solid #d9d9d9;
+  border-radius: 0px;
+  transition: all .3s;
+}
+
+.input-field-addOn-suffix {
+  background-color: #fafafa;
+  border: 1px solid #d9d9d9;
+  border-left: 0px;
+}
+
+.input-prefix-wrapper > input.sh-input {
+  border-left: none;
+}
+
+.input-prefix-wrapper  > .input-field-wrapper > span > input.sh-input {
+  border-left: none;
+}
+
+
+.input-suffix {
+  border-right: 0px;
+}
+
+.input-prefix {
+  border-left: 0px;
+}
+
+@mixin input-color($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+
+  $color:  get-color($primary);
+
+  .sh-input {
+    caret-color: get-color($primary, text);
+  }
+  .input-focused > .input-field-wrapper > span > input.sh-input{
+      border:  1px solid $color;
+      outline: none;
+      box-sizing: border-box;
+  }
+
+  .input-focused-affix > .input-field-wrapper > span > input.sh-input{
+    border:  1px solid $color;
+    border-left: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .input-focused-affix > .input-field-wrapper  > .input-field-affix {
+    border:  1px solid $color;
+    border-right: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+}
+
+
+@mixin input-typography($theme) {
+  
+}
+
+@mixin input-theme($theme, $typography) {
+
+  @include input-color($theme);
+}

@@ -1,0 +1,129 @@
+<layout>
+
+  <my-header>
+    UiKit
+  </my-header>
+
+
+  <layout>
+      <sider (collapsedChange)='collapsedChange($event)' >
+        <ul [collapsed]='collapsed' menu>
+          <li routerLink="/" menu-item>
+            <img src="../assets/icons/main.svg" />
+            <div *ngIf='!collapsed'>
+              UiKit
+            </div>
+          </li>
+          <div class="devider"></div>
+
+          <li routerLink="/buttons" menu-item>
+            <img src="../assets/icons/typo.svg" />
+            <div *ngIf='!collapsed'>
+              Typo
+            </div>
+          </li>
+
+          <li routerLink="/buttons" menu-item>
+            <img src="../assets/icons/1.svg" />
+            <div *ngIf='!collapsed'>
+              Colors
+            </div>
+          </li>
+
+          <li routerLink="/buttons" menu-item>
+            <img src="../assets/icons/1.svg" />
+            <div *ngIf='!collapsed'>
+              Icons
+            </div>
+          </li>
+
+          <div class="devider"></div>
+
+          <li routerLink="/buttons" menu-item>
+            <img src="../assets/icons/1.svg" />
+            <div *ngIf='!collapsed'>
+              Buttons
+            </div>
+          </li>
+          <li routerLink="/inputs"  menu-item>
+            <img src="../assets/icons/2.svg" />
+            <div *ngIf='!collapsed'>
+              Input
+            </div>
+          </li>
+          <li routerLink="/selects"  menu-item>
+            <img src="../assets/icons/3.svg" />
+            <div *ngIf='!collapsed'>
+              Select
+            </div>
+          </li>
+
+          <li routerLink="/selects"  menu-item>
+            <img src="../assets/icons/3.svg" />
+            <div *ngIf='!collapsed'>
+              Autocomplete
+            </div>
+          </li>
+
+
+          <li routerLink="/selects"  menu-item>
+            <img src="../assets/icons/3.svg" />
+            <div *ngIf='!collapsed'>
+              Checkbox
+            </div>
+          </li>
+
+          <div class="devider"></div>
+
+
+          <li routerLink="/selects"  menu-item>
+            <img src="../assets/icons/3.svg" />
+            <div *ngIf='!collapsed'>
+              Layout
+            </div>
+          </li>
+
+          <div class="devider"></div>
+
+          <li routerLink="/selects"  menu-item>
+            <img src="../assets/icons/3.svg" />
+            <div *ngIf='!collapsed'>
+              schematics
+            </div>
+          </li>
+
+        </ul>
+      </sider>
+
+    <layout>
+      <div style="height: 80vh;">
+        <!--
+        <div style="margin: 20px">
+          <div class='wrap'>
+            <button class='button '>Simple</button>
+            <button class='button button-primary'>Primary</button>
+            <button class='button button-accent'>Accent</button>
+            <button class='button button-warn'>Warn</button>
+          </div>
+
+          <div class='wrap'>
+            <button class='button button-primary-flat'>Simple Flat</button>
+            <button class='button button-primary button-primary-flat'>Primary Flat</button>
+            <button class='button button-accent button-accent-flat'>Accent Flat</button>
+            <button class='button button-warn button-warn-flat'>Warn Flat</button>
+          </div>
+          
+        </div>
+       -->
+
+        <router-outlet></router-outlet>
+
+      </div>
+
+      <my-footer>UiKit Angular</my-footer>
+
+    </layout>
+
+  </layout>
+
+</layout>
