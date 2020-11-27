@@ -3,21 +3,21 @@ padding: 24px;
 background-color: white; height: 100%;">
      
      
-     <h2 style="padding-left: 20px;">Input</h2>
+     <h2 style="padding-left: 20px;">Анатомия и использование поля ввода</h2>
         <div style="margin: 20px">
           <div class='wrap'>
               <div >
                 <h6 style="margin: 0px;">Input дефолтный</h6>
                 <input-field  >
-                  <input sh-input />
+                  <input sh-input placeholder="Input дефолтный" />
                 </input-field>
                 <h6 style="margin: 0px;">Input префикс </h6>
-                <input-field shPrefix='pr'  >
+                <input-field shPrefix='$'  >
                     <input sh-input />
                 </input-field>
 
                 <h6 style="margin: 0px;">Input префикс и addOn</h6>
-                <input-field shPrefix='pr' [shAddonSuffix]='suffixAddOnTemplate'>
+                <input-field shPrefix='$' [shAddonSuffix]='suffixAddOnTemplate'>
                     <input sh-input />
                 </input-field>
 

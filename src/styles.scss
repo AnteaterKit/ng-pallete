@@ -14,8 +14,9 @@
 .wrap {
   display: flex;
     justify-content: space-between;
-    width: 460px;
+    width: 520px;
     margin-top: 20px;
+    align-items: center;
 }
 
 
@@ -27,14 +28,18 @@ $theme: theme($primary, $accent, $warn);
 $typography: typography-config();
 
 @mixin button-base {
+  position: relative;
   cursor: pointer;
   outline: none;
   border: none;
   min-width: 80px;
-  line-height: 36px;
+  height: 32px;
   border-radius: 4px;
+  padding: 4px 11px;
   -webkit-tap-highlight-color: transparent;
   border: 0px;
+  background-color: none;
+  background-color: transparent;
 }
 
 @mixin buttons-colors($theme) {
@@ -46,10 +51,45 @@ $typography: typography-config();
   .button {
     color: get-color($foreground, text);
   }
+
+  .button {
+    &.btn-sm {
+      padding: 1px 7px;
+      height: 24px;
+    }
+    &.btn-lg {
+      padding: 6px 11px;
+      height: 40px;
+    }
+  }
   
   .button-primary {
     color:  get-color($primary);
   }
+
+  .simpleButton {
+    &.button-primary {
+      .sh-button-focus-overlay {
+        background-color: get-color($primary);
+      }
+    }
+  }
+  .simpleButton {
+    &.button-accent {
+      .sh-button-focus-overlay {
+        background-color: get-color($accent);
+      }
+    }
+  }
+
+  .simpleButton {
+    &.button-warn {
+      .sh-button-focus-overlay {
+        background-color: get-color($warn);
+      }
+    }
+  }
+
   .button-primary-flat {
     color:  get-color($primary, default-contrast);
     background-color: get-color($primary);
@@ -83,6 +123,46 @@ $typography: typography-config();
       background-color: get-color($warn);
     }
   }
+
+  .strokedButton  {
+    border: 1px solid;
+    &.button-primary{
+      color:  get-color($primary);
+      border-color: get-color($primary);
+    }
+    &.button-accent{
+      color:  get-color($accent);
+      border-color: get-color($accent);
+    }
+    &.button-warn{
+      color:  get-color($warn);
+      border-color: get-color($warn);
+    }
+  }
+
+  .strokedButton {
+    &.button-primary {
+      .sh-button-focus-overlay {
+        background-color: get-color($primary);
+      }
+    }
+  }
+  .strokedButton {
+    &.button-accent {
+      .sh-button-focus-overlay {
+        background-color: get-color($accent);
+      }
+    }
+  }
+
+  .strokedButton {
+    &.button-warn {
+      .sh-button-focus-overlay {
+        background-color: get-color($warn);
+      }
+    }
+  }
+
   .button-disabled {
     color:  get-color($foreground, disabled-button);
     background-color: get-color($foreground, disabled-button);

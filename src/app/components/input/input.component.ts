@@ -19,6 +19,8 @@ import {
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+export type InputSize = 'large' | 'default' | 'small';
+
 @Component({
   selector: 'input-field',
   exportAs: 'inputField',
@@ -93,6 +95,4 @@ export class InputFieldComponent implements OnInit, OnChanges, OnDestroy  {
     }
 
   }
-
- 
 }

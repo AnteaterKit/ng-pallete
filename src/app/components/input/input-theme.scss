@@ -69,6 +69,18 @@
   border-left: 0px;
 }
 
+.button {
+  &.input-sm {
+    padding: 1px 7px;
+    height: 24px;
+  }
+  &.input-lg {
+    padding: 6px 11px;
+    height: 40px;
+  }
+}
+
+
 @mixin input-color($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);

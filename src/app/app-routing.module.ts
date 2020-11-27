@@ -3,6 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'check',
+    loadChildren:  () => import('./modules/check-list/check-list.module').then(x => x.CheckListModule)
+  },
+  {
+    path: 'uikit',
+    loadChildren:  () => import('./modules/ui-kit/ui-kit.module').then(x => x.UiKitModule)
+  },
+  {
     path: 'buttons',
     loadChildren:  () => import('./modules/buttons/buttons.module').then(x => x.ButtonsModule)
   },

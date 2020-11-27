@@ -1,22 +1,106 @@
 <div style="margin: 24px;
 padding: 24px;
 background-color: white; height: 100%;">
-  <h2 style="padding-left: 20px;">Ng way buttons</h2>
-  <div style="margin: 20px">
-    <div class='wrap'>
-      <button shButton>Simple</button>
-      <button shButton id='add-enabled' color="primary">Primary</button>
-      <button shButton color="accent">Accent</button>
-      <button shButton color="warn">Warn</button>
-      <button shButton id='add-disabled' color="primary" disabled="true">Disabled</button>
+  <h2 style="padding-left: 20px;">Анатомия и использование кнопки</h2>
+  <div style="display: flex;margin: 20px;">
+    <div style="margin: 16px; width: 70%;">
+      <h4>Кнопки</h4>
+      <div class='wrap'>
+        <button simpleButton>Simple</button>
+        <button simpleButton id='add-enabled' color="primary">Primary</button>
+        <button simpleButton color="accent">Accent</button>
+        <button simpleButton color="warn">Warn</button>
+        <button simpleButton id='add-disabled' color="primary" disabled="true">Disabled</button>
+
+      </div>
+
+      <div class='wrap'>
+        <button flatButton>Simple Flat</button>
+        <button flatButton color="primary">Primary Flat</button>
+        <button flatButton color="accent">Accent Flat</button>
+        <button flatButton color="warn">Warn Flat</button>
+        <button flatButton disabled="true">Simple Flat</button>
+      </div>
+
+      <div class='wrap'>
+        <button strokedButton>Simple Stroked</button>
+        <button strokedButton color="primary"> Stroked</button>
+        <button strokedButton color="accent"> Stroked</button>
+        <button strokedButton color="warn"> Stroked</button>
+        <button strokedButton disabled="true"> Stroked</button>
+      </div>
+
+      <div class='wrap'>
+        <div>Simple &nbsp;<span>s</span> &nbsp;<span>m</span> &nbsp; <span>l</span></div>
+        <button simpleButton [size]='sizeSm' color="primary">Primary Flat</button>
+        <button simpleButton  color="primary">Accent Flat</button>
+       <button simpleButton [size]='sizeLg' color="primary">Accent Flat</button>
+       </div>
+
+      <div class='wrap'>
+       <div>Flat &nbsp;<span>s</span> &nbsp;<span>m</span>&nbsp;  <span>l</span></div>
+       <button flatButton [size]='sizeSm' color="primary">Primary Flat</button>
+       <button flatButton  color="primary">Accent Flat</button>
+      <button flatButton [size]='sizeLg' color="primary">Accent Flat</button>
+      </div>
+
+      <div class='wrap'>
+        <div>Stroked &nbsp; <span>s</span> &nbsp;<span>m</span>  &nbsp;<span>l</span></div>
+        <button strokedButton [size]='sizeSm' color="primary">Primary Flat</button>
+        <button strokedButton  color="primary">Accent Flat</button>
+       <button strokedButton [size]='sizeLg' color="primary">Accent Flat</button>
+       </div>
+
+   
+
+      <h4>Api</h4>
+      <div style="height: 310px;">
+        <iframe #iframe type="text/javascript" width="100%" frameborder="0" style="height:inherit"></iframe>
+      </div>
 
     </div>
 
-    <div class='wrap'>
-      <button flatButton>Simple Flat</button>
-      <button flatButton color="primary">Primary Flat</button>
-      <button flatButton color="accent">Accent Flat</button>
-      <button flatButton color="warn">Warn Flat</button>
+    <div style="margin: 16px;">
+      <h4>Анатомия кнопки</h4>
+      <div>
+        <img src='../../../assets/anatomi/button.svg'>
+      </div>
+      <h5>
+        По действию - первичные и вторичные (различные акценты кнопок). Закладываются в палитру
+      </h5>
+      <div class='wrap-basic'>
+        <button style="margin-right: 8px;" flatButton color="primary">Primary Flat</button>
+        <button style="margin-right: 8px;" flatButton color="accent">Accent Flat</button>
+        <button style="margin-right: 8px;" flatButton color="warn">Warn Flat</button>
+      </div>
+      <h5>
+        Состояние - enabled, disabled, hover, active
+      </h5>
+      <div class='wrap-basic'>
+        <button style="margin-right: 8px;" simpleButton>Simple</button>
+        <button simpleButton id='add-disabled' color="primary" disabled="true">Disabled</button>
+
+      </div>
+      <h5>
+        Стиль - сплошные, контурные, прозрачные
+      </h5>
+      <div class='wrap-basic'>
+        <button style="margin-right: 8px;" simpleButton id='add-enabled' color="primary">Primary</button>
+        <button style="margin-right: 8px;" flatButton color="primary">Primary Flat</button>
+        <button style="margin-right: 8px;" strokedButton color="primary"> Stroked</button>
+      </div>
+      <h5>
+        Размеры - s, m, l. Регулируется с помощью padding, height и соответсвующего font-size
+      </h5>
+      <div class='wrap-basic'>
+        <button style="margin-right: 8px; padding: 1px 15px;" [size]='sizeSm' flatButton color="primary">Primary Flat S</button>
+        <button style="margin-right: 8px; padding: 3px 15px;" flatButton color="primary">Primary Flat M</button>
+        <button style="margin-right: 8px; padding: 6px 15px;" [size]='sizeLg' flatButton color="primary">Primary Flat L</button>
+      </div>
     </div>
+
+  </div>
+  <div style="margin: 20px;">
+
   </div>
 </div>

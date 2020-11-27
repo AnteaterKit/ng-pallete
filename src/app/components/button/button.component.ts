@@ -1,15 +1,17 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Input, ElementRef } from '@angular/core';
 
 export type ShButtonType = 'primary' | 'default' | 'warn' | null;
+export type ShButtonSize = 'large' | 'default' | 'small';
 
 // атрибуты директивы
 const BUTTON_HOST_ATTRIBUTES = [
-  'sh-button',
-  'flatButton'
+  'simpleButton',
+  'flatButton',
+  'strokedButton'
 ];
 
 @Component({
-  selector: 'button[shButton], button[flatButton]',
+  selector: 'button[simpleButton], button[flatButton], button[strokedButton]',
   exportAs: 'shButton',
   // tslint:disable-next-line:no-inputs-metadata-property
   inputs: ['disabled', 'color'],
@@ -17,6 +19,8 @@ const BUTTON_HOST_ATTRIBUTES = [
   host: {
     '[class.button-disabled]': 'disabled',
     '[attr.disabled]': 'disabled || null',
+    '[class.btn-lg]': `size === 'large'`,
+    '[class.btn-sm]': `size === 'small'`,
   },
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
@@ -25,18 +29,19 @@ const BUTTON_HOST_ATTRIBUTES = [
 })
 export class ButtonComponent implements OnInit {
   private _elementRef: ElementRef;
+  @Input() size: ShButtonSize = 'default';
   constructor(elementRef: ElementRef) {
-   this._elementRef = elementRef;
+    this._elementRef = elementRef;
 
-   for (const attr of BUTTON_HOST_ATTRIBUTES) {
+    for (const attr of BUTTON_HOST_ATTRIBUTES) {
       if (this._hasHostAttributes(attr)) {
         (this._getHostElement() as HTMLElement).classList.add(attr);
       }
     }
 
-   elementRef.nativeElement.classList.add('button');
-   const pallete = this._getHostAttribute('color');
-   elementRef.nativeElement.classList.add(`button-${pallete}`);
+    elementRef.nativeElement.classList.add('button');
+    const pallete = this._getHostAttribute('color');
+    elementRef.nativeElement.classList.add(`button-${pallete}`);
   }
 
 

@@ -1,14 +1,32 @@
 <layout>
 
   <my-header>
-    UiKit
+    UiKit Quick start шаг за шагом
   </my-header>
 
 
   <layout>
       <sider (collapsedChange)='collapsedChange($event)' >
         <ul [collapsed]='collapsed' menu>
-          <li routerLink="/" menu-item>
+          <li routerLink="/check" menu-item>
+            <img src="../assets/icons/main.svg" />
+            <div *ngIf='!collapsed'>
+              NG UIKit check list
+            </div>
+          </li>
+          <li routerLink="/uikit" menu-item>
+            <img src="../assets/icons/main.svg" />
+            <div *ngIf='!collapsed'>
+              Вспомнить все Angular
+            </div>
+          </li>
+          <li routerLink="/uikit" menu-item>
+            <img src="../assets/icons/main.svg" />
+            <div *ngIf='!collapsed'>
+              Вспомнить Figma
+            </div>
+          </li>
+          <li routerLink="/uikit" menu-item>
             <img src="../assets/icons/main.svg" />
             <div *ngIf='!collapsed'>
               UiKit
@@ -88,7 +106,14 @@
           <li routerLink="/selects"  menu-item>
             <img src="../assets/icons/3.svg" />
             <div *ngIf='!collapsed'>
-              schematics
+              Schematics
+            </div>
+          </li>
+
+          <li routerLink="/selects"  menu-item>
+            <img src="../assets/icons/3.svg" />
+            <div *ngIf='!collapsed'>
+              Core cdk
             </div>
           </li>
 
@@ -96,7 +121,8 @@
       </sider>
 
     <layout>
-      <div style="height: 80vh;">
+      <div style="min-height: 80vh;
+      height: 100%;">
         <!--
         <div style="margin: 20px">
           <div class='wrap'>

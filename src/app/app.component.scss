@@ -1,8 +1,14 @@
 .wrap {
   display: flex;
     justify-content: space-between;
-    width: 460px;
+    width: 520px;
     margin-top: 20px;
+}
+
+.wrap-basic {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
 }
 
 img {
