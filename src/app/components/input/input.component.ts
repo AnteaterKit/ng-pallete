@@ -19,7 +19,6 @@ import {
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-export type InputSize = 'large' | 'default' | 'small';
 
 @Component({
   selector: 'input-field',
@@ -45,14 +44,13 @@ export type InputSize = 'large' | 'default' | 'small';
     '[class.input-addon-wrapper]': `isAddOn`,
     '[class.input-prefix-wrapper]': `isAffix`,
     '[class.input-focused]': `focused && !isAffix`,
-    '[class.input-focused-affix]': `focused && isAffix`,
+    '[class.input-focused-affix]': `focused && isAffix`
   }
 })
 export class InputFieldComponent implements OnInit, OnChanges, OnDestroy  {
 
   @Input() shPrefix?: string | TemplateRef<void>;
   @Input() shSuffix?: string | TemplateRef<void>;
-
   @Input() shAddonSuffix?: string | TemplateRef<void>;
 
   isAffix = false;

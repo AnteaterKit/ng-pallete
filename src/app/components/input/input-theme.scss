@@ -8,6 +8,7 @@
   box-sizing: border-box;
   border-radius: 0px;
   padding: 4px 11px;
+  height: 32px;
   width: 100%;
 }
 .sh-input:focus {
@@ -29,6 +30,8 @@
   border-right: none;
   padding-left: 8px;
   color: #626262;
+  display: flex;
+  align-items: center;
 }
 
 .input-field-addOn{
@@ -69,14 +72,15 @@
   border-left: 0px;
 }
 
-.button {
+.sh-input{
   &.input-sm {
-    padding: 1px 7px;
+    padding: 0px 7px;
     height: 24px;
   }
   &.input-lg {
     padding: 6px 11px;
     height: 40px;
+    font-size: 16px;
   }
 }
 

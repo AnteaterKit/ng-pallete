@@ -1,12 +1,18 @@
 import { Directive, OnInit, Input, Optional, Self, Renderer2, ElementRef, TemplateRef } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
+export type InputSize = 'large' | 'default' | 'small';
+
 @Directive({
   selector: 'input[sh-input]',
   exportAs: 'shInput',
+  host: {
+    '[class.input-lg]': `size === 'large'`,
+    '[class.input-sm]': `size === 'small'`,
+  }
 })
 export class InputDirective implements OnInit {
-
+  @Input() size: InputSize = 'default';
 
   @Input()
   get disabled(): boolean {
