@@ -6,11 +6,15 @@
   background: #FFFFFF;
   border: 1px solid #d9d9d9;
   box-sizing: border-box;
-  border-radius: 0px;
+  border-radius: 2px;
   padding: 4px 11px;
   height: 32px;
   width: 100%;
 }
+.sh-input::placeholder {
+  color: #d9d9d9;
+}
+
 .sh-input:focus {
   border: none;
   box-sizing: none;

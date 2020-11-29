@@ -4,62 +4,90 @@ background-color: white; height: 100%;">
 
 
   <h2 style="padding-left: 20px;">Анатомия и использование поля ввода</h2>
-  <div style="margin: 20px">
-    <div class='wrap'>
-      <div>
-        <h6 style="margin: 0px;">Input дефолтный</h6>
-        <input-field>
-          <input sh-input placeholder="Input дефолтный" />
-        </input-field>
-        <h6 style="margin: 0px;">Input префикс </h6>
-        <input-field shPrefix='$'>
-          <input sh-input />
-        </input-field>
-
-        <h6 style="margin: 0px;">Input префикс и addOn</h6>
-        <input-field shPrefix='$' [shAddonSuffix]='suffixAddOnTemplate'>
-          <input sh-input />
-        </input-field>
-
-        <h6 style="margin: 0px;">Input addOn</h6>
-        <input-field [shAddonSuffix]='suffixAddOnTemplate'>
-          <input sh-input />
-        </input-field>
-
-      </div>
-
-      <div>
-        <h6 style="margin: 0px;">Input s</h6>
+  <div style="margin: 20px; display: flex;">
+    <div>
+      <h4>Поле ввода</h4>
+      <div class='wrap'>
         <div>
-          <input-field>
-            <input sh-input [size]='sizeSm' placeholder="Input S" />
-          </input-field>
-        </div>
-        <h6 style="margin: 0px;">Input M</h6>
-        <div>
-          <input-field>
-            <input sh-input  placeholder="Input M" />
-          </input-field>
-        </div>
-        <h6 style="margin: 0px;">Input L</h6>
-        <div>
-          <input-field>
-            <input sh-input [size]='sizeLg' placeholder="Input L" />
-          </input-field>
-        </div>
-      </div>
+          <div>
+            <div class="">
+              <h5 style="margin: 0px;">Input дефолтный</h5>
+              <input-field>
+                <input sh-input placeholder="Input дефолтный" />
+              </input-field>
+            </div>
+            <div class="input-wrapper">
+              <h5 style="margin: 0px;">Input префикс </h5>
+              <input-field shPrefix='$'>
+                <input sh-input />
+              </input-field>
+            </div>
 
-      <ng-template #suffixTemplate>
-        <div style="display: flex;
+            <div class="input-wrapper">
+              <h5 style="margin: 0px;">Input префикс и addOn</h5>
+              <input-field shPrefix='$' [shAddonSuffix]='suffixAddOnTemplate'>
+                <input sh-input />
+              </input-field>
+            </div>
+
+            <div class="input-wrapper">
+              <h5 style="margin: 0px;">Input addOn</h5>
+              <input-field [shAddonSuffix]='suffixAddOnTemplate'>
+                <input sh-input />
+              </input-field>
+            </div>
+
+          </div>
+
+          <div>
+            <div class="input-wrapper">
+              <h5 style="margin: 0px;">Input s</h5>
+              <div>
+                <input-field>
+                  <input sh-input [size]='sizeSm' placeholder="Input S" />
+                </input-field>
+              </div>
+            </div>
+            <div class="input-wrapper">
+              <h5 style="margin: 0px;">Input M</h5>
+              <div>
+                <input-field>
+                  <input sh-input placeholder="Input M" />
+                </input-field>
+              </div>
+            </div>
+            <div class="input-wrapper">
+              <h5 style="margin: 0px;">Input L</h5>
+              <div>
+                <input-field>
+                  <input sh-input [size]='sizeLg' placeholder="Input L" />
+                </input-field>
+              </div>
+            </div>
+          </div>
+
+          <ng-template #suffixTemplate>
+            <div style="display: flex;
                 justify-content: center;
                 flex-direction: column;">sf</div>
-      </ng-template>
-      <ng-template #suffixAddOnTemplate>
-        <div style="display: flex;
+          </ng-template>
+          <ng-template #suffixAddOnTemplate>
+            <div style="display: flex;
               justify-content: center;
               flex-direction: column;">Руб.</div>
-      </ng-template>
+          </ng-template>
+
+        </div>
+      </div>
     </div>
+
+    <div>
+      <h4>Анатомия поля ввода</h4>
+      <div>
+        <img src='../../../assets/anatomi/input.svg'>
+      </div>
+    </div>
+
   </div>
 
 </div>
