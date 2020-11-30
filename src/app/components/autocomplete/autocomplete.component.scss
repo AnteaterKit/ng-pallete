@@ -1,0 +1,33 @@
+.sh-select-item-option-selected:not(.sh-select-item-option-disabled) {
+  color: rgba(0,0,0,.65);
+  font-weight: 600;
+  background-color: #e6f7ff;
+}
+
+.sh-select-item-option {
+  display: flex;
+}
+
+.sh-select-item {
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.sh-select-item, .sh-select-item-empty {
+  position: relative;
+  display: block;
+  min-height: 32px;
+  padding: 5px 12px;
+  color: rgba(0,0,0,.65);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.ng-select-dropdown {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  outline: none;
+  box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08), 0 9px 28px 8px rgba(0,0,0,.05)
+}

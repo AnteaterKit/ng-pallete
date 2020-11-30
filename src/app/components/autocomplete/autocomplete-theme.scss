@@ -1,0 +1,17 @@
+@mixin sh-autocomplete-color($config-or-theme) {
+
+  // $config: mat-get-color-config($config-or-theme);
+  // $foreground: map-get($config, foreground);
+ //  $background: map-get($config, background);
+
+   .sh-autocomplete-panel {
+       background: whitesmoke; // mat-color($background, card);
+       color: black; // mat-color($foreground, text);
+   }
+}
+
+
+@mixin sh-autocomplete-theme($theme) {
+   $color: mat-get-color-config($theme);
+   @include sh-autocomplete-color($color);
+}
