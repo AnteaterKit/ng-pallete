@@ -28,6 +28,11 @@ const routes: Routes = [
     path: 'autocomplete',
     loadChildren:  () => import('./modules/autocomplets/autocomplets.module').then(x => x.AutocompletsModule)
   }
+  ,
+  {
+    path: 'forms',
+    loadChildren:  () => import('./modules/forms/forms.module').then(x => x.FormsModule)
+  }
 
 ];
 

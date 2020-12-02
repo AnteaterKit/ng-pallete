@@ -1,0 +1,43 @@
+<div style="margin: 24px;
+padding: 24px;
+background-color: white; height: 100%;">
+  <h2 style="padding-left: 20px;">Forms</h2>
+  
+  <div style="display: flex;margin: 20px;">
+    <div [formGroup]='form' style="margin: 16px; width: 20%;">
+      <h4>FormControl</h4>
+      <div class='wrap'>
+        <div>
+          <form-control>
+            <input-field>
+              <input formControlName='name' sh-input placeholder="input form control" />
+            </input-field>
+          </form-control>
+          <form-control>
+            <input-field>
+              <input formControlName='name' sh-input placeholder="input form warning" />
+            </input-field>
+          </form-control>
+          <form-control>
+            <input-field>
+              <input formControlName='name' sh-input placeholder="input form error" />
+            </input-field>
+          </form-control>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div style="margin: 20px;">
+      <h4>Анатомия form</h4>
+      <div>
+        <img src='../../../assets/anatomi/form.svg'>
+      </div>
+    </div>
+
+
+  </div>
+  
+</div>
