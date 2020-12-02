@@ -15,20 +15,27 @@
   }
 
   .sider {
+    height: calc(100vh - 100px);
+    overflow: scroll;
     position: relative;
     background-color: #ffffff;
   }
 
   .sider-collapsed {
-
+    width: 60px;
   }
 
   .sider-trigger {
-    position: absolute;
-    bottom: 15px;
-    right: 5px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: inherit;
     cursor: pointer;
     color: black;
+    background-color: #cccdcf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .layout-has-sider {

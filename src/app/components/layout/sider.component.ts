@@ -10,12 +10,14 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, In
     <div class='sider-content'>
         <ng-content></ng-content>
     </div>
-    <div class='sider-trigger'>
-      <div *ngIf='collapsed' (click)='collapsedChanged()'>
-        <img src='../../../assets/icons/open.svg' />
-      </div>
-      <div *ngIf='!collapsed' (click)='collapsedChanged()'>
-      <img src='../../../assets/icons/close.svg' />
+    <div (click)='collapsedChanged()' class='sider-trigger'>
+      <div >
+        <div *ngIf='collapsed' >
+          <img src='../../../assets/icons/open.svg' />
+        </div>
+        <div *ngIf='!collapsed'  >
+        <img src='../../../assets/icons/close.svg' />
+        </div>
       </div>
     </div>
   `,
@@ -28,7 +30,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, In
 })
 export class SiderComponent implements OnInit {
   @Input() width: string | number = 200;
-  @Input() collapsedWidth = 50;
+  @Input() collapsedWidth = 55;
   @Input() collapsed = false;
   @Output() collapsedChange: EventEmitter<boolean> = new EventEmitter();
 
