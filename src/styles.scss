@@ -204,3 +204,43 @@ body { margin: 0; font-family: "Roboto", "Helvetica Neue", sans-serif; }
 .cdk-overlay-dark-backdrop {
   background: transparent !important;
 }
+
+
+
+
+
+.card {
+  background-color: #f9f9f9;
+  outline: solid 1px #f0f0f0;
+  transition: outline 0.1s linear;
+  margin: 24px; 
+  width: 300px;
+  box-sizing: border-box;
+  
+}
+
+.card:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.card-header {
+  padding: 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card-content {
+  padding: 24px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.card-action {
+  margin-top: 48px;
+  display: flex;
+  justify-content: flex-end;
+  color: #4e94ff;
+  cursor: pointer;
+
+}
