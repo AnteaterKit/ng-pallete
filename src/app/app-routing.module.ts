@@ -33,6 +33,11 @@ const routes: Routes = [
     path: 'forms',
     loadChildren:  () => import('./modules/forms/forms.module').then(x => x.FormsModule)
   }
+  ,
+  {
+    path: 'ngabout',
+    loadChildren:  () => import('./modules/ngabout/ngabout.module').then(x => x.NgaboutModule)
+  }
 
 ];
 
