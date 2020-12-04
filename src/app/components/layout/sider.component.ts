@@ -29,7 +29,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, In
   }
 })
 export class SiderComponent implements OnInit {
-  @Input() width: string | number = 200;
+  @Input() width: string | number = 300;
   @Input() collapsedWidth = 55;
   @Input() collapsed = false;
   @Output() collapsedChange: EventEmitter<boolean> = new EventEmitter();
