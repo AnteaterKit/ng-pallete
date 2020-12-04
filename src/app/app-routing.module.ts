@@ -37,7 +37,13 @@ const routes: Routes = [
   {
     path: 'ngabout',
     loadChildren:  () => import('./modules/ngabout/ngabout.module').then(x => x.NgaboutModule)
+  },
+  {
+    path: 'typo',
+    loadChildren:  () => import('./modules/typo/typo.module').then(x => x.TypoModule)
   }
+
+
 
 ];
 
