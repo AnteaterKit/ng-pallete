@@ -1,0 +1,13 @@
+.typo-item {
+  display: flex;
+}
+
+.typo-item-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.typo-item-content {
+  margin-left: 24px;
+}
