@@ -70,8 +70,15 @@ const routes: Routes = [
   {
     path: 'typo',
     loadChildren:  () => import('./modules/typo/typo.module').then(x => x.TypoModule)
+  },
+  {
+    path: 'colors',
+    loadChildren:  () => import('./modules/colors/colors.module').then(x => x.ColorsModule)
+  },
+  {
+    path: 'icons',
+    loadChildren:  () => import('./modules/icons/icons.module').then(x => x.IconsModule)
   }
-
 
 
 ];
