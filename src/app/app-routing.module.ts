@@ -50,6 +50,21 @@ const routes: Routes = [
         path: 'ngapi',
         loadChildren:  () => import('./modules/ngabout/ngapi/ngapi.module').then(x => x.NgapiModule)
       }
+      ,
+      {
+        path: 'ngcdk',
+        loadChildren:  () => import('./modules/ngabout/ngcdk/ngcdk.module').then(x => x.NgcdkModule)
+      }
+      ,
+      {
+        path: 'ngrxjs',
+        loadChildren:  () => import('./modules/ngabout/rxjs/rxjs.module').then(x => x.RxjsModule)
+      }
+      ,
+      {
+        path: 'rxoperators',
+        loadChildren:  () => import('./modules/ngabout/rxoperators/rxoperators.module').then(x => x.RxoperatorsModule)
+      }
     ]
   },
   {
