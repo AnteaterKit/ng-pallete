@@ -45,6 +45,11 @@ const routes: Routes = [
         path: 'ngmain',
         loadChildren:  () => import('./modules/ngabout/ngmain/ngmain.module').then(x => x.NgmainModule)
       }
+      ,
+      {
+        path: 'ngapi',
+        loadChildren:  () => import('./modules/ngabout/ngapi/ngapi.module').then(x => x.NgapiModule)
+      }
     ]
   },
   {
