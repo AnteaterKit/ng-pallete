@@ -27,6 +27,146 @@ $warn:  palette($warn);
 $theme: theme($primary, $accent, $warn);
 $typography: typography-config();
 
+
+@mixin colors($theme) {
+  $primary: map-get($theme, primary);
+  $contrast: get-color($primary, contrast);
+  
+  .pr-fifty {
+    background-color: get-color($primary, 50);
+    color: get-color($contrast, 50);
+  }
+  .pr-sto {
+    background-color: get-color($primary, 100);
+    color: get-color($contrast, 100);
+  }
+  .pr-two {
+    background-color: get-color($primary, 200);
+    color: get-color($contrast, 200);
+  }
+  .pr-thr {
+    background-color: get-color($primary, 300);
+    color: get-color($contrast, 300);
+  }
+  .pr-tho {
+    background-color: get-color($primary, 400);
+    color: get-color($contrast, 400);
+  }
+  .pr-five {
+    background-color: get-color($primary, 500);
+    color: get-color($contrast, 500);
+  }
+  .pr-six {
+    background-color: get-color($primary, 600);
+    color: get-color($contrast, 600);
+  }
+  .pr-sev {
+    background-color: get-color($primary, 700);
+    color: get-color($contrast, 700);
+  }
+  .pr-egh {
+    background-color: get-color($primary, 800);
+    color: get-color($contrast, 800);
+  }
+ 
+  .pr-nine {
+    background-color: get-color($primary, 900);
+    color: get-color($contrast, 900);
+  }
+
+  $accent: map-get($theme, accent);
+  $accentContrast: get-color($accent, contrast);
+   
+  .ac-fifty {
+    background-color: get-color($accent, 50);
+    color: get-color($accentContrast, 50);
+  }
+  .ac-sto {
+    background-color: get-color($accent, 100);
+    color: get-color($accentContrast, 100);
+  }
+  .ac-two {
+    background-color: get-color($accent, 200);
+    color: get-color($accentContrast, 200);
+  }
+  .ac-thr {
+    background-color: get-color($accent, 300);
+    color: get-color($accentContrast, 300);
+  }
+  .ac-tho {
+    background-color: get-color($accent, 400);
+    color: get-color($accentContrast, 400);
+  }
+  .ac-five {
+    background-color: get-color($accent, 500);
+    color: get-color($accentContrast, 500);
+  }
+  .ac-six {
+    background-color: get-color($accent, 600);
+    color: get-color($accentContrast, 600);
+  }
+  .ac-sev {
+    background-color: get-color($accent, 700);
+    color: get-color($accentContrast, 700);
+  }
+  .ac-egh {
+    background-color: get-color($accent, 800);
+    color: get-color($accentContrast, 800);
+  }
+ 
+  .ac-nine {
+    background-color: get-color($accent, 900);
+    color: get-color($accentContrast, 900);
+  }
+
+  $warn: map-get($theme, warn);
+  $warnContrast: get-color($warn, contrast);
+
+     
+  .w-fifty {
+    background-color: get-color($warn, 50);
+    color: get-color($warnContrast, 50);
+  }
+  .w-sto {
+    background-color: get-color($warn, 100);
+    color: get-color($warnContrast, 100);
+  }
+  .w-two {
+    background-color: get-color($warn, 200);
+    color: get-color($warnContrast, 200);
+  }
+  .w-thr {
+    background-color: get-color($warn, 300);
+    color: get-color($warnContrast, 300);
+  }
+  .w-tho {
+    background-color: get-color($warn, 400);
+    color: get-color($warnContrast, 400);
+  }
+  .w-five {
+    background-color: get-color($warn, 500);
+    color: get-color($warnContrast, 500);
+  }
+  .w-six {
+    background-color: get-color($warn, 600);
+    color: get-color($warnContrast, 600);
+  }
+  .w-sev {
+    background-color: get-color($warn, 700);
+    color: get-color($warnContrast, 700);
+  }
+  .w-egh {
+    background-color: get-color($warn, 800);
+    color: get-color($warnContrast, 800);
+  }
+ 
+  .w-nine {
+    background-color: get-color($warn, 900);
+    color: get-color($warnContrast, 900);
+  }
+}
+
+
 @mixin button-base {
   position: relative;
   cursor: pointer;
@@ -199,6 +339,8 @@ $typography: typography-config();
 @include menu-theme($theme);
 
 @include mat-base-typography($typography);
+
+@include colors($theme);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Roboto", "Helvetica Neue", sans-serif; }
