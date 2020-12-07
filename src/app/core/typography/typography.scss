@@ -33,3 +33,44 @@
   // Add the base font family to the config.
   @return map-merge($config, (font-family: $font-family));
 }
+
+@mixin mat-base-typography($config) {
+  .h1 {
+    font-size: 96px;
+    font-size: 600;
+  }
+  .h2 {
+    font-size: 60px;
+    font-size: 600;
+  }
+  .h3 {
+    font-size: 48px;
+    font-size: 600;
+  }
+  .h4 {
+    font-size: 34px;
+    font-size: 500;
+  }
+  .h5 {
+    font-size: 24px;
+    font-size: 500;
+  }
+  .h6 {
+    font-size: 20px;
+    font-size: 500;
+  }
+  .subtitle {
+    font-size: 16px;
+    font-size: 600;
+  }
+  .body {
+    font-size: 16px;
+  }
+  .caption {
+    font-size: 12px;
+  }
+  .overline {
+    font-size: 12px;
+  }
+
+}
