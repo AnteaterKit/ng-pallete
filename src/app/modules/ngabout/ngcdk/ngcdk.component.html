@@ -1,3 +1,66 @@
-<p>
-  ngcdk works!
-</p>
+<div style="padding: 24px; background-color: white; height: 100%;">
+  <div>
+    <h1>Angular CDK</h1>
+  </div>
+
+  <div style="width: 100%;" class="card card-detail">
+    <div class="card-wrapper">
+      <div class="card-header">Layout</div>
+      <div class="card-content">
+        <div>
+          Это класс помеченный декоратором Directive. С помощью нее можно добавлять новое поведение существующему DOM
+          элементу.
+        </div>
+        <div>
+          Основные черты: в одном DOM элементе может быть много директив. У директив нет View (template). Внутри
+          директивы нельзя использовать пайпы.
+        </div>
+        <div>
+          Когда использовать: создание масок, dragAndDrop, button и тд.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%;" class="card card-detail">
+    <div class="card-wrapper">
+      <div class="card-header">Portal</div>
+      <div class="card-content">
+        <div>
+          Это класс помеченный декоратором Component. Созданы для того, чтобы разбивать приложение на маленькие кусочки.
+        </div>
+        <div>
+          Основные черты: в одном DOM элементе может быть 1 компонент, в отличие от директив. Есть View (template).
+          Внутри
+          компонента используются пайпы.
+        </div>
+        <div>
+          Когда использовать: создание представления.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%;" class="card card-detail">
+    <div class="card-wrapper">
+      <div class="card-header">Overlay</div>
+      <div class="card-content">
+        <div>
+          Это класс реализующий interface PipeTransform. Нужны для преобразования данных при их выводе в HTML.
+        </div>
+        <div>
+          Основные черты: Реализует метод transform(value: any, ...args: any[]) и возвращает преобразованное значение.
+        </div>
+        <div>
+          Когда использовать: курсы валют, форматирование чисел и дат, преобразование Enum в текст.
+        </div>
+        <div>
+          Частая ошибка - использовать функцию в шаблоне там где нужен Pipe.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
