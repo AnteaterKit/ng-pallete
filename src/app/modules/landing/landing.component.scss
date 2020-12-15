@@ -80,15 +80,104 @@ $colorDark: #1a1b22;
   padding-left: 8rem;
   padding-right: 8rem;
   padding-top: 4rem;
-  padding-bottom: 12rem;
+  padding-bottom: 4rem;
+
   &__text {
     font-size: 36px;
   }
   &__cards {
+    display: flex;
     &__card {
+      margin: 32px;
       border-radius: 8px;
+      max-width: 350px;
+      &__title {
+        margin-top: 16px;
+        font-size: 26px;
+      }
+      &__subtitle {
+        margin-top: 16px;
+        font-size: 18px;
+        color: #6d6d6de0;
+      }
+      &__img {
+        width: 350px;
+        height: 250px;
+      }
     }
   }
+}
+
+.content-get {
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  font-size: 36px;
+  background-color: #f5f6f7;
+  &__text {
+   line-height: 1.6;
+   &__item {
+     font-size: 26px;
+   }
+   &__logo {
+     margin-bottom: 32x;
+   }
+  }
+  &__btn-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+  }
+  &__btn {
+    min-width: 250px;
+    color: black;
+    background-color: #f1f10e;
+    font-size: 16px;
+    height: 50px;
+  }
+}
+
+.content-stages {
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  font-size: 36px;
+  background: $colorDark;
+  color: #fff;
+  &__content {
+    position: relative;
+    &__item {
+      padding-bottom: 64px;
+      position: relative;
+      &__tail {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        height: calc(100% - 10px);
+        border-left: 2px solid #f0f0f0;
+      }
+      &__title {
+        margin-top: 25px;
+        font-size: 24px;
+      }
+      &__subtitle {
+        margin-top: 12px;
+        font-size: 18px;
+      }
+    }
+   
+  }
+}
+
+.circle {
+  margin: 16px;
+  width: 50px;
+  height: 50px;
+  background: #f1f10d;
+  border-radius: 25px;
 }
 
 #loading {
