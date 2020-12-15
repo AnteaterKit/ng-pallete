@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,18 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  qty = 0;
-  title = 'pallete';
-  val = 3;
   collapsed = false;
+  showMenu = false;
 
-  add() {
-    this.qty++;
+  constructor(private routing: Router) {
+    this.routing.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        console.log(event);
+        if (event.url.indexOf('landing') === -1) {
+          this.showMenu = true;
+        }
+      }
+    });
   }
 
   collapsedChange($event) {
     console.log($event);
     this.collapsed = $event;
   }
-  
 }

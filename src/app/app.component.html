@@ -1,12 +1,12 @@
-<layout>
+<layout >
 
-  <my-header>
+  <my-header *ngIf='showMenu'>
     UiKit Quick start шаг за шагом
   </my-header>
 
 
   <layout>
-      <sider (collapsedChange)='collapsedChange($event)' >
+      <sider *ngIf='showMenu' (collapsedChange)='collapsedChange($event)' >
         <ul style="border-right: 1px solid #f0f0f0;" [collapsed]='collapsed' menu>
           <li routerLink="/uikit" menu-item>
             <img src="../assets/icons/main.svg" />

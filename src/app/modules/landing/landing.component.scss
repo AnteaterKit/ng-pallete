@@ -1,0 +1,105 @@
+$colorDark: #1a1b22;
+
+.land {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  background: $colorDark;
+
+  &__right {
+    margin-left: auto;
+    cursor: pointer;
+  }
+  &__right:hover {
+    color: yellow;
+  }
+}
+
+.header-content {
+  color: #fff;
+  font-size: 24px;
+  display: flex;
+  width: 100%;
+}
+
+.content {
+  color: #fff;
+  background: $colorDark;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-bottom: 12rem;
+  &__video {
+    display: flex;
+    justify-content: center;
+    padding-top: 36px;
+    &__item {
+      z-index: 10;
+    }
+  }
+  &__fig-wrapper {
+    position: absolute;
+    top: 2vw;
+    left: 20%;
+  }
+  &__text-wrapper {
+    margin-top: 5rem;
+    font-size: 48px;
+  }
+}
+
+.content-promo {
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+  font-size: 36px;
+  background-color: white;
+  &__text {
+    color: $colorDark;
+  }
+}
+
+.content-job {
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+  font-size: 36px;
+  background-color: #f5f6f7;
+}
+
+.content-stady {
+  background-color: #fff;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 4rem;
+  padding-bottom: 12rem;
+  &__text {
+    font-size: 36px;
+  }
+  &__cards {
+    &__card {
+      border-radius: 8px;
+    }
+  }
+}
+
+#loading {
+  animation: rotation 32s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(359deg);
+  }
+}

@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'landing',
+    loadChildren:  () => import('./modules/landing/landing.module').then(x => x.LandingModule)
+  },
+  {
     path: 'check',
     loadChildren:  () => import('./modules/check-list/check-list.module').then(x => x.CheckListModule)
   },
