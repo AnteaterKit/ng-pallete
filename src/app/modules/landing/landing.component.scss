@@ -41,6 +41,8 @@ $colorDark: #1a1b22;
     padding-top: 36px;
     &__item {
       z-index: 10;
+      width: 600px;
+      height: 337px;
     }
   }
   &__fig-wrapper {
@@ -150,11 +152,11 @@ $colorDark: #1a1b22;
   &__content {
     position: relative;
     &__item {
-      padding-bottom: 64px;
+      padding-bottom: 96px;
       position: relative;
       &__tail {
         position: absolute;
-        top: 40px;
+        top: 60px;
         left: 40px;
         height: calc(100% - 10px);
         border-left: 2px solid #f0f0f0;
@@ -165,6 +167,12 @@ $colorDark: #1a1b22;
       }
       &__subtitle {
         margin-top: 12px;
+        font-size: 18px;
+        color: #f1f10d;
+      }
+      &__info {
+        margin-top: 24px;
+        line-height: 1.6;
         font-size: 18px;
       }
     }
@@ -191,4 +199,179 @@ $colorDark: #1a1b22;
   to {
       transform: rotate(359deg);
   }
+}
+
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .header {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background: $colorDark;
+    }
+
+    .content {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-bottom: 1rem;
+      &__video {
+        padding-top: 16px;
+        &__item {
+          width: 354px;
+          height: 237px;
+        }
+      }
+      &__text-wrapper {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-size: 36px;
+      }
+    }
+
+    .content-promo {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      font-size: 24px;
+      background-color: white;
+      &__text {
+        color: $colorDark;
+      }
+    }
+
+    .content-job {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      font-size: 24px;
+      background-color: #f5f6f7;
+    }
+
+    
+
+    .content-stady {
+      background-color: #fff;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+
+      &__text {
+        font-size: 24px;
+      }
+      &__cards {
+        display: flex;
+        flex-direction: column;
+        &__card {
+          margin: 0px;
+          margin-top: 36px;
+          border-radius: 8px;
+          max-width: 350px;
+          &__title {
+            margin-top: 16px;
+            font-size: 26px;
+          }
+          &__subtitle {
+            margin-top: 16px;
+            font-size: 18px;
+            color: #6d6d6de0;
+          }
+          &__img {
+            width: 350px;
+            height: 250px;
+          }
+        }
+      }
+    }
+
+
+    .content-get {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      font-size: 24px;
+      background-color: #f5f6f7;
+      &__text {
+      line-height: 1.6;
+      &__item {
+        font-size: 18px;
+      }
+      &__logo {
+        margin-bottom: 32x;
+      }
+      }
+      &__btn-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+      &__btn {
+        min-width: 250px;
+        color: black;
+        background-color: #f1f10e;
+        font-size: 16px;
+        height: 50px;
+      }
+    }
+
+
+.content-stages {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 24px;
+  background: $colorDark;
+  color: #fff;
+  &__content {
+    position: relative;
+    &__item {
+      padding-bottom: 96px;
+      position: relative;
+      &__tail {
+        position: absolute;
+        top: 60px;
+        left: 40px;
+        height: calc(100% - 10px);
+        border-left: 2px solid #f0f0f0;
+      }
+      &__title {
+        margin-top: 25px;
+        font-size: 24px;
+      }
+      &__subtitle {
+        margin-top: 12px;
+        font-size: 18px;
+        color: #f1f10d;
+      }
+      &__info {
+        margin-top: 24px;
+        line-height: 1.6;
+        font-size: 18px;
+      }
+    }
+   
+  }
+}
+
+.circle {
+  margin: 0px;
+  width: 25px;
+  height: 25px;
+  background: #f1f10d;
+  border-radius: 12.5px;
+}
+
+
 }
