@@ -342,7 +342,7 @@ $colorDark: #1a1b22;
       &__tail {
         position: absolute;
         top: 60px;
-        left: 40px;
+        left: 22px;
         height: calc(100% - 10px);
         border-left: 2px solid #f0f0f0;
       }
@@ -366,11 +366,11 @@ $colorDark: #1a1b22;
 }
 
 .circle {
-  margin: 0px;
-  width: 25px;
-  height: 25px;
+  margin: 16px;
+  width: 50px;
+  height: 50px;
   background: #f1f10d;
-  border-radius: 12.5px;
+  border-radius: 25px;
 }
 
 

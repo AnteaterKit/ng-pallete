@@ -8,7 +8,7 @@
   <div style="display: flex; margin-top: 24px;
   margin-bottom: 24px;">
 
-    <div (click)='navigate("ngmain")' class="card">
+    <div #ngall (click)='navigate("ngmain")' class="card">
       <div class="card-wrapper">
         <div class="card-header">
           Основные термины
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div (click)='navigate("ngapi")' class="card">
+    <div  #ngapi (click)='navigate("ngapi")' class="card">
       <div class="card-wrapper">
         <div class="card-header">
           Api
@@ -40,7 +40,7 @@
     </div>
 
 
-    <div (click)='navigate("ngcdk")' class="card">
+    <div #ngcdk (click)='navigate("ngcdk")' class="card">
       <div class="card-wrapper">
         <div class="card-header">
           Angular cdk
@@ -62,7 +62,7 @@
   margin-bottom: 160px;">
 
 
-    <div (click)='navigate("ngrxjs")' class="card">
+    <div #ngrx (click)='navigate("ngrxjs")' class="card">
       <div class="card-wrapper">
         <div class="card-header">
           RxJs
@@ -77,7 +77,7 @@
       </div>
     </div>
 
-    <div (click)='navigate("rxoperators")' class="card">
+    <div #ngrxo (click)='navigate("rxoperators")' class="card">
       <div class="card-wrapper">
         <div class="card-header">
           RxJs Operators
@@ -94,4 +94,33 @@
 </div>
 
 
+</div>
+
+<div style="position: absolute; top: 500px; right: 120px;" >
+  <img style="width: 200px;" src="../../../assets/faces/my.svg" />
+</div>
+
+<div class="dialog" id="text1" style="position: absolute; top: 750px; right: 320px;" >
+  Привет!
+</div>
+
+<div class="dialog" id="text2" style="position: absolute; top: 790px; right: 320px;" >
+  В этом курсе я расскажу тебе про создание UiKit на Angular
+</div>
+
+
+<div class="dialog" #text3 id="text3" style="position: absolute; top: 790px; right: 320px;" >
+  Мы вспомним основные термины Angular.
+</div>
+
+<div class="dialog" #text4 id="text3" style="position: absolute; top: 790px; right: 320px;" >
+  Пройдем Angular API для создания кастомных компонентов.
+</div>
+
+<div class="dialog" #text5 id="text5" style="position: absolute; top: 790px; right: 320px;" >
+  Выучим RxJs для конкретных сценариев
+</div>
+
+<div class="dialog" #text6 id="text5" style="position: absolute; top: 790px; right: 320px;" >
+  Используем RxJs operators на практике.
 </div>
