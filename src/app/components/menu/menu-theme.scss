@@ -16,12 +16,14 @@
 
   .menu-item {
     display: flex;
+    align-items: center;
     padding: 16px;
   }
   
   .menu-item:hover {
     cursor: pointer;
-    background-color: blanchedalmond;
+    background-color: #4084ea;
+    color: white;
   }
 
   .menu-item img {

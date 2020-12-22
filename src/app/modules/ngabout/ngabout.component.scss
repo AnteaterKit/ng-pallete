@@ -58,3 +58,24 @@
         display: none;
     }
   }
+
+  #face {
+    animation: face 20s  linear; 
+    opacity: 0;
+  }
+
+  @keyframes face {
+    from {
+        opacity: 1;
+    }
+    to {
+        visibility: hidden;
+        display: none;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+        display: none;
+        visibility: hidden;
+    }
+  }

@@ -27,6 +27,13 @@ export class NgaboutComponent implements OnInit {
 
   @ViewChild('ngcdk', {static: false})
   private ngcdk: ElementRef;
+  @ViewChild('ngrx', {static: false})
+  private ngrx: ElementRef;
+  @ViewChild('ngrxo', {static: false})
+  private ngrxo: ElementRef;
+
+  @ViewChild('face', {static: false})
+  private face: ElementRef;
 
 
   constructor(private router: Router, private renderer: Renderer2) { }
@@ -67,6 +74,31 @@ export class NgaboutComponent implements OnInit {
     setTimeout(x => {
       this.renderer.setStyle(this.text6.nativeElement, 'display', 'block');
     }, 4000);
+
+    setTimeout(x => {
+      this.renderer.setStyle(this.ngcdk.nativeElement, 'box-shadow', '0 0 10px rgba(0,0,0,0.5)');
+      this.renderer.setStyle(this.ngcdk.nativeElement, ' background-color', '#ffffff');
+    }, 3000);
+    setTimeout(x => {
+      this.renderer.setStyle(this.ngcdk.nativeElement, 'box-shadow', 'none');
+      this.renderer.setStyle(this.ngcdk.nativeElement, ' background-color', 'none');
+    }, 4000);
+    setTimeout(x => {
+      this.renderer.setStyle(this.ngrx.nativeElement, 'box-shadow', '0 0 10px rgba(0,0,0,0.5)');
+      this.renderer.setStyle(this.ngrx.nativeElement, ' background-color', '#ffffff');
+    }, 4000);
+    setTimeout(x => {
+      this.renderer.setStyle(this.ngrx.nativeElement, 'box-shadow', 'none');
+      this.renderer.setStyle(this.ngrx.nativeElement, ' background-color', 'none');
+    }, 5000);
+    setTimeout(x => {
+      this.renderer.setStyle(this.ngrxo.nativeElement, 'box-shadow', '0 0 10px rgba(0,0,0,0.5)');
+      this.renderer.setStyle(this.ngrxo.nativeElement, ' background-color', '#ffffff');
+    }, 5000);
+    setTimeout(x => {
+      this.renderer.setStyle(this.ngrxo.nativeElement, 'box-shadow', 'none');
+      this.renderer.setStyle(this.ngrxo.nativeElement, ' background-color', 'none');
+    }, 6000);
   }
 
   navigate(route: string): void {

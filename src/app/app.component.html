@@ -1,149 +1,158 @@
-<layout >
+<layout>
 
   <my-header *ngIf='showMenu'>
-    UiKit Quick start шаг за шагом
+    <div style="display: flex;">
+      <div style="display: flex;
+      align-items: center;">
+        <img style="width: 42px;
+        height: 42px;" src="../assets/uikit.svg" />
+      </div>
+      <div style="margin-left: 16px;">
+        UiKit step by step
+      </div>
+    </div>
   </my-header>
 
 
   <layout>
-      <sider *ngIf='showMenu' (collapsedChange)='collapsedChange($event)' >
-        <ul style="border-right: 1px solid #f0f0f0;" [collapsed]='collapsed' menu>
-          <li routerLink="/uikit" menu-item>
-            <img src="../assets/icons/main.svg" />
-            <div *ngIf='!collapsed'>
-              UiKit
-            </div>
-          </li>
-        
-          <li routerLink="/ngabout" menu-item>
-            <img src="../assets/icons/main.svg" />
-            <div *ngIf='!collapsed'>
-              Вспомнить все Angular
-            </div>
-          </li>
-        
-          <li routerLink="/check" menu-item>
-            <img src="../assets/icons/main.svg" />
-            <div *ngIf='!collapsed'>
-              NG UIKit check list
-            </div>
-          </li>
-        
-          <div class="devider"></div>
+    <sider *ngIf='showMenu' (collapsedChange)='collapsedChange($event)'>
+      <ul style="border-right: 1px solid #f0f0f0;" [collapsed]='collapsed' menu>
+        <li routerLink="/uikit" menu-item>
+          <img src="../assets/icons/uikit/uikit.svg" />
+          <div *ngIf='!collapsed'>
+            UiKit
+          </div>
+        </li>
 
-          <li routerLink="/typo" menu-item>
-            <img src="../assets/icons/typo.svg" />
-            <div *ngIf='!collapsed'>
-              Typo
-            </div>
-          </li>
+        <li routerLink="/ngabout" menu-item>
+          <img src="../assets/icons/uikit/remember.svg" />
+          <div *ngIf='!collapsed'>
+            Вспомнить все Angular
+          </div>
+        </li>
 
-          <li routerLink="/colors" menu-item>
-            <img src="../assets/icons/1.svg" />
-            <div *ngIf='!collapsed'>
-              Colors
-            </div>
-          </li>
+        <li routerLink="/check" menu-item>
+          <img src="../assets/icons/uikit/check.svg" />
+          <div *ngIf='!collapsed'>
+            NG UIKit check list
+          </div>
+        </li>
 
-          <li routerLink="/icons" menu-item>
-            <img src="../assets/icons/1.svg" />
-            <div *ngIf='!collapsed'>
-              Icons
-            </div>
-          </li>
+        <div class="devider"></div>
 
-          <div class="devider"></div>
+        <li routerLink="/typo" menu-item>
+          <img src="../assets/icons/uikit/typo.svg" />
+          <div *ngIf='!collapsed'>
+            Typo
+          </div>
+        </li>
 
-          <li routerLink="/buttons" menu-item>
-            <img src="../assets/icons/1.svg" />
-            <div *ngIf='!collapsed'>
-              Buttons
-            </div>
-          </li>
-          <li routerLink="/inputs"  menu-item>
-            <img src="../assets/icons/2.svg" />
-            <div *ngIf='!collapsed'>
-              Input
-            </div>
-          </li>
-          <li routerLink="/selects"  menu-item>
-            <img src="../assets/icons/3.svg" />
-            <div *ngIf='!collapsed'>
-              Select
-            </div>
-          </li>
+        <li routerLink="/colors" menu-item>
+          <img src="../assets/icons/uikit/colors.svg" />
+          <div *ngIf='!collapsed'>
+            Colors
+          </div>
+        </li>
 
-          <li routerLink="/autocomplete"  menu-item>
-            <img src="../assets/icons/3.svg" />
-            <div *ngIf='!collapsed'>
-              Autocomplete
-            </div>
-          </li>
+        <li routerLink="/icons" menu-item>
+          <img src="../assets/icons/uikit/icons.svg" />
+          <div *ngIf='!collapsed'>
+            Icons
+          </div>
+        </li>
 
+        <div class="devider"></div>
 
-          <li routerLink="/selects"  menu-item>
-            <img src="../assets/icons/3.svg" />
-            <div *ngIf='!collapsed'>
-              Checkbox
-            </div>
-          </li>
+        <li routerLink="/buttons" menu-item>
+          <img src="../assets/icons/uikit/button.svg" />
+          <div *ngIf='!collapsed'>
+            Buttons
+          </div>
+        </li>
+        <li routerLink="/inputs" menu-item>
+          <img src="../assets/icons/uikit/input.svg" />
+          <div *ngIf='!collapsed'>
+            Input
+          </div>
+        </li>
+        <li routerLink="/selects" menu-item>
+          <img src="../assets/icons/uikit/select.svg" />
+          <div *ngIf='!collapsed'>
+            Select
+          </div>
+        </li>
 
-          <li routerLink="/forms"  menu-item>
-            <img src="../assets/icons/3.svg" />
-            <div *ngIf='!collapsed'>
-              Form
-            </div>
-          </li>
-
-          <li routerLink="/selects"  menu-item>
-            <img src="../assets/icons/3.svg" />
-            <div *ngIf='!collapsed'>
-              Icon
-            </div>
-          </li>
-
-          <li routerLink="/selects"  menu-item>
-            <img src="../assets/icons/3.svg" />
-            <div *ngIf='!collapsed'>
-              Card
-            </div>
-          </li>
-
-          <li routerLink="/selects"  menu-item>
-            <img src="../assets/icons/3.svg" />
-            <div *ngIf='!collapsed'>
-              Tooltip
-            </div>
-          </li>
-
-          <div class="devider"></div>
+        <li routerLink="/autocomplete" menu-item>
+          <img src="../assets/icons/uikit/auto.svg" />
+          <div *ngIf='!collapsed'>
+            Autocomplete
+          </div>
+        </li>
 
 
-          <li routerLink="/selects"  menu-item>
-            <img src="../assets/icons/3.svg" />
-            <div *ngIf='!collapsed'>
-              Layout
-            </div>
-          </li>
+        <li routerLink="/selects" menu-item>
+          <img src="../assets/icons/uikit/checkbox.svg" />
+          <div *ngIf='!collapsed'>
+            Checkbox
+          </div>
+        </li>
 
-          <div class="devider"></div>
+        <li routerLink="/forms" menu-item>
+          <img src="../assets/icons/uikit/form.svg" />
+          <div *ngIf='!collapsed'>
+            Form
+          </div>
+        </li>
 
-          <li routerLink="/selects"  menu-item>
-            <img src="../assets/icons/3.svg" />
-            <div *ngIf='!collapsed'>
-              Schematics
-            </div>
-          </li>
+        <li routerLink="/selects" menu-item>
+          <img src="../assets/icons/uikit/icons.svg" />
+          <div *ngIf='!collapsed'>
+            Icon
+          </div>
+        </li>
 
-          <li routerLink="/selects"  menu-item>
-            <img src="../assets/icons/3.svg" />
-            <div *ngIf='!collapsed'>
-              Core cdk
-            </div>
-          </li>
+        <li routerLink="/selects" menu-item>
+          <img src="../assets/icons/uikit/card.svg" />
+          <div *ngIf='!collapsed'>
+            Card
+          </div>
+        </li>
 
-        </ul>
-      </sider>
+        <li routerLink="/selects" menu-item>
+          <img src="../assets/icons/uikit/tooltip.svg" />
+          <div *ngIf='!collapsed'>
+            Tooltip
+          </div>
+        </li>
+
+        <div class="devider"></div>
+
+
+        <li routerLink="/selects" menu-item>
+          <img src="../assets/icons/3.svg" />
+          <div *ngIf='!collapsed'>
+            Layout
+          </div>
+        </li>
+
+        <div class="devider"></div>
+
+        <li routerLink="/selects" menu-item>
+          <img src="../assets/icons/3.svg" />
+          <div *ngIf='!collapsed'>
+            Schematics
+          </div>
+        </li>
+
+        <li routerLink="/selects" menu-item>
+          <img src="../assets/icons/3.svg" />
+          <div *ngIf='!collapsed'>
+            Core cdk
+          </div>
+        </li>
+
+      </ul>
+    </sider>
 
     <layout>
       <div style="min-height: 80vh;
@@ -171,7 +180,7 @@
 
       </div>
 
-      <my-footer  *ngIf='showMenu'>UiKit Angular</my-footer>
+      <my-footer *ngIf='showMenu'>UiKit Angular</my-footer>
 
     </layout>
 

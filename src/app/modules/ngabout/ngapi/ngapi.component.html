@@ -5,18 +5,20 @@
 
   <div style="width: 100%;" class="card card-detail">
     <div class="card-wrapper">
-      <div class="card-header">NgContent, NgTemplate, NgContainer</div>
+      <div class="card-header">NgContent, NgTemplate, NgContainer, NgTemplateOutlet</div>
       <div class="card-content">
+        <div>Позволяют создавать динамичные и настраиваемые компоненты.</div>
         <div>
-          Это класс помеченный декоратором Directive. С помощью нее можно добавлять новое поведение существующему DOM
-          элементу.
+          NgContent позволяет родительским компонентам внедрять код html в дочерние компоненты
         </div>
         <div>
-          Основные черты: в одном DOM элементе может быть много директив. У директив нет View (template). Внутри
-          директивы нельзя использовать пайпы.
+          NgTemplate: директив-шаблон, контент которой может быть отображен в другом месте.
         </div>
         <div>
-          Когда использовать: создание масок, dragAndDrop, button и тд.
+          NgContainer: позволяет применить структурную директиву к разделу страницы, не создавай при этом дополнительный элемент
+        </div>
+        <div>
+          NgTemplateOutlet: может взять NgTemplate шаблон и и создать его экземпляр где угодно на странице.
         </div>
       </div>
     </div>
@@ -27,7 +29,7 @@
       <div class="card-header">ViewChild, ElementRef, TemplateRef, ViewContainerRef</div>
       <div class="card-content">
         <div>
-          Это класс помеченный декоратором Component. Созданы для того, чтобы разбивать приложение на маленькие кусочки.
+          ViewChild: получает доступ в DOM элементу
         </div>
         <div>
           Основные черты: в одном DOM элементе может быть 1 компонент, в отличие от директив. Есть View (template).
