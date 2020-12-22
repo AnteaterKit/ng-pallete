@@ -103,6 +103,7 @@ $colorDark: #1a1b22;
         color: #6d6d6de0;
       }
       &__img {
+        object-fit: cover;
         width: 350px;
         height: 250px;
       }
