@@ -1,0 +1,13 @@
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 16px;
+  min-width: 80px;
+  &__text {
+    margin-top: 8px;
+  }
+  &__icon {
+
+  }
+}
