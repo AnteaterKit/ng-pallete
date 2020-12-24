@@ -39,6 +39,11 @@ const routes: Routes = [
   }
   ,
   {
+    path: 'checkbox',
+    loadChildren:  () => import('./modules/checkbox/checkbox.module').then(x => x.CheckboxDocModule)
+  }
+  ,
+  {
     path: 'ngabout',
     children: [
       {

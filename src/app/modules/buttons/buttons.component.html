@@ -2,9 +2,66 @@
 padding: 24px;
 background-color: white; height: 100%;">
   <h2 style="padding-left: 20px;">Анатомия и использование кнопки</h2>
+
+   <div style="margin-left: 20px;">
+    Кнопка – это интерактивный элемент по нажатию которой происходит действие.
+    Они  важны для пользовательского интерфейса, 
+    так как все интерфейсы требуют  какого-то действия для продолжения работы в продукте. 
+    Сохранение, подтверждение формы, загрузка - кнопки повсюду.
+   </div>
+
+   <br/>
+
+   <div style="margin-left: 20px;">
+    Чтобы проще было реализовать различные виды кнопок, рассмотрим ее анатомию. 
+   </div>
+
+   <div style="margin-left: 20px;">
+
+    <div >
+      <h4>Анатомия кнопки</h4>
+      <div>
+        <img src='../../../assets/anatomi/button.svg'>
+      </div>
+      <h4>
+        По действию - первичные и вторичные (различные акценты кнопок). Закладываются в палитру
+      </h4>
+      <div class='wrap-basic'>
+        <button style="margin-right: 8px;" flatButton color="primary">Primary Flat</button>
+        <button style="margin-right: 8px;" flatButton color="accent">Accent Flat</button>
+        <button style="margin-right: 8px;" flatButton color="warn">Warn Flat</button>
+      </div>
+      <h4>
+        Состояние - enabled, disabled, hover, active
+      </h4>
+      <div class='wrap-basic'>
+        <button style="margin-right: 8px;" simpleButton>Simple</button>
+        <button simpleButton id='add-disabled' color="primary" disabled="true">Disabled</button>
+
+      </div>
+      <h4>
+        Стиль - сплошные, контурные, прозрачные
+      </h4>
+      <div class='wrap-basic'>
+        <button style="margin-right: 8px;" simpleButton id='add-enabled' color="primary">Primary</button>
+        <button style="margin-right: 8px;" flatButton color="primary">Primary Flat</button>
+        <button style="margin-right: 8px;" strokedButton color="primary"> Stroked</button>
+      </div>
+      <h4>
+        Размеры - s, m, l. Регулируется с помощью padding, height и соответсвующего font-size
+      </h4>
+      <div class='wrap-basic'>
+        <button style="margin-right: 8px; padding: 1px 15px;" [size]='sizeSm' flatButton color="primary">Primary Flat S</button>
+        <button style="margin-right: 8px; padding: 3px 15px;" flatButton color="primary">Primary Flat M</button>
+        <button style="margin-right: 8px; padding: 6px 15px;" [size]='sizeLg' flatButton color="primary">Primary Flat L</button>
+      </div>
+    </div>
+   </div>
+
+
   <div style="display: flex;margin: 20px;">
-    <div style="margin: 16px; width: 70%;">
-      <h4>Кнопки</h4>
+    <div style="  width: 70%;">
+      <h4> Все кнопки в UiKit </h4>
       <div class='wrap'>
         <button simpleButton>Simple</button>
         <button simpleButton id='add-enabled' color="primary">Primary</button>
@@ -60,47 +117,9 @@ background-color: white; height: 100%;">
 
     </div>
 
-    <div style="margin: 16px;">
-      <h4>Анатомия кнопки</h4>
-      <div>
-        <img src='../../../assets/anatomi/button.svg'>
-      </div>
-      <h5>
-        По действию - первичные и вторичные (различные акценты кнопок). Закладываются в палитру
-      </h5>
-      <div class='wrap-basic'>
-        <button style="margin-right: 8px;" flatButton color="primary">Primary Flat</button>
-        <button style="margin-right: 8px;" flatButton color="accent">Accent Flat</button>
-        <button style="margin-right: 8px;" flatButton color="warn">Warn Flat</button>
-      </div>
-      <h5>
-        Состояние - enabled, disabled, hover, active
-      </h5>
-      <div class='wrap-basic'>
-        <button style="margin-right: 8px;" simpleButton>Simple</button>
-        <button simpleButton id='add-disabled' color="primary" disabled="true">Disabled</button>
-
-      </div>
-      <h5>
-        Стиль - сплошные, контурные, прозрачные
-      </h5>
-      <div class='wrap-basic'>
-        <button style="margin-right: 8px;" simpleButton id='add-enabled' color="primary">Primary</button>
-        <button style="margin-right: 8px;" flatButton color="primary">Primary Flat</button>
-        <button style="margin-right: 8px;" strokedButton color="primary"> Stroked</button>
-      </div>
-      <h5>
-        Размеры - s, m, l. Регулируется с помощью padding, height и соответсвующего font-size
-      </h5>
-      <div class='wrap-basic'>
-        <button style="margin-right: 8px; padding: 1px 15px;" [size]='sizeSm' flatButton color="primary">Primary Flat S</button>
-        <button style="margin-right: 8px; padding: 3px 15px;" flatButton color="primary">Primary Flat M</button>
-        <button style="margin-right: 8px; padding: 6px 15px;" [size]='sizeLg' flatButton color="primary">Primary Flat L</button>
-      </div>
-    </div>
 
   </div>
   <div style="margin: 20px;">
-
+    <h4>Реализация </h4>
   </div>
 </div>

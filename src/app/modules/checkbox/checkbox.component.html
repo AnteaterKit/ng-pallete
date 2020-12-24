@@ -1,0 +1,55 @@
+<div style="padding: 24px; padding-bottom: 0px;
+background-color: white; height: 100%;">
+  <h2 style="padding-left: 20px;">Checkbox</h2>
+
+
+  <uikit-checkbox></uikit-checkbox>
+
+  <h2 style="padding-left: 20px;">Этапы создания</h2>
+
+
+  <div>1.</div>
+  <div>
+    <div>
+      Создадим в папке компонентов новый модуль src/app/components и назовем его checkbox
+    </div>
+
+    <div>
+     Перейдем в checkbox.module.ts и добавим экспорт  exports: [CheckboxComponent].
+    </div>
+
+    <div>
+      Перейдем в checkbox.module.ts и добавим экспорт  exports: [CheckboxComponent].
+     </div>
+
+      <div>
+        Добавим checkbox-theme.component.scss -  в нем будет содержаться стили которые относятся к теме и палитре.
+        в checkbox.component.scss буду содержаться базовые стили checkbox.
+        Структура файлов готова перейдем к описанию компонента.
+      </div>
+
+      <div>
+        Откроем checkbox.component.ts
+        Добавим selector: 'uikit-checkbox',
+        Добавим  exportAs: 'uiKitCheckbox',
+        Добавим  changeDetection: ChangeDetectionStrategy.OnPush,
+        Добавим encapsulation: ViewEncapsulation.None,
+
+        Далее напишем тело представления. 
+
+
+        template: `
+          span
+            input
+              type='checkbox'
+        `,
+
+         увидим что пока получается дефолтный чекбокс
+         
+
+      </div>
+
+  </div>
+
+
+</div>

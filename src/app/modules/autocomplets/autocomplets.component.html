@@ -2,11 +2,23 @@
 padding: 24px;
 background-color: white; height: 100%;">
   <h2 style="padding-left: 20px;">Анатомия и использование автокомплита</h2>
+
+  <div style="margin-left: 20px;">
+    Автокомплит – одна из разновидностей полей ввода и для построения UiKit можно использовать вышереализованный input.
+  </div>
+
+  <div style="margin-left: 20px;">
+    <h4>Анатомия кнопки</h4>
+    <div>
+      <img src='../../../assets/anatomi/autocomplete.svg'>
+    </div>
+  </div>
+
   <div style="display: flex;margin: 20px;">
     <div style="margin: 16px; width: 70%;">
       <h4>Автокомплит</h4>
       <div class='wrap'>
-      
+
         <div>
           <input-field [shSuffix]='suffixTemplate'>
             <input placeholder="автокомплит" sh-input [shAutocomplete]='auto'>
@@ -14,7 +26,7 @@ background-color: white; height: 100%;">
           <sh-autocomplete #auto [shDataSource]='dataSource'>
           </sh-autocomplete>
         </div>
-        
+
         <ng-template #suffixTemplate>
           <div style="display: flex;
           justify-content: center;
@@ -23,11 +35,11 @@ background-color: white; height: 100%;">
 
       </div>
 
-     
+
 
     </div>
 
-  
+
 
   </div>
   <div style="margin: 20px;">
