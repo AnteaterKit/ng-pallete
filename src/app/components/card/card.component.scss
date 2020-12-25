@@ -1,0 +1,48 @@
+.ui-card {
+  border-radius: 4px;
+  background-color: white;
+}
+.ui-card-title {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.ui-card-title-text {
+  padding: 0 24px;
+}
+
+.ui-card-content {
+  padding: 24px;
+}
+
+.ui-card-actions {
+  padding: 0 24px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  &__action {
+    width: 100%;
+  }
+}
+
+
+
+@import '../../core/theme/theming.scss';
+
+@mixin card-color($theme) {
+  $background: map-get($theme, background);
+  $card-border-color: map-get($background, card-border);
+
+  .ui-card {
+    border: 1px solid $card-border-color;
+  }
+  .ui-card-title {
+    border-bottom: 1px solid $card-border-color;
+  }
+  .ui-card-actions {
+    border-top: 1px solid $card-border-color;;
+  }
+
+}
+

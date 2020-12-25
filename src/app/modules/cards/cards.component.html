@@ -15,12 +15,67 @@ background-color: white; height: 100%;">
     </div>
   </div>
 
+  <h4 style="margin-left: 20px;">Card</h4>
+
+  <div style="margin-left: 20px;width: 300px;">
+    <uikit-card title='Title' [actions]="[action]">
+      <div>
+        Content card
+      </div>
+    </uikit-card>
+  </div>
+
+  <ng-template #action>
+    <div style="display: flex;  justify-content: space-evenly;">
+      <button strokedButton color="primary" > action </button>
+      <button strokedButton color="accent" > action </button>
+    </div>
+  </ng-template>
+
   <div style="margin-left: 20px;">
     <h4>Создание карточки</h4>
   </div>
 
+  <h4 style="margin-left: 20px;">Использование</h4>
+
+  <div style="height: 470px; width: 100%;
+  min-width: 550px;">
+    <iframe #iframe type="text/javascript" width="100%" frameborder="0" style="height:inherit"></iframe>
+  </div>
+
+
   <div style="margin-left: 20px;">
     Перейдем в папку с компонентами и создадим новый модуль.
   </div>
+
+  <div style="margin-left: 20px;">
+    Опишем компонент
+  </div>
+
+  <div style="height: 470px; width: 100%;
+  min-width: 550px;">
+    <iframe #iframe1 type="text/javascript" width="100%" frameborder="0" style="height:inherit"></iframe>
+  </div>
+
+
+  <div style="margin-left: 20px;">
+    Добавим стилей и посмотрим результат
+  </div>
+
+  <div style="height: 370px; width: 100%;
+  min-width: 550px;">
+    <iframe #iframe2 type="text/javascript" width="100%" frameborder="0" style="height:inherit"></iframe>
+  </div>
+
+
+  <div style="margin-left: 20px;">
+     Вернемся к типографике и теме. Добавим цвета из палитры и шрифты. 
+  </div>
+
+  <div style="height: 370px; width: 100%;
+  min-width: 550px;">
+    <iframe #iframe3 type="text/javascript" width="100%" frameborder="0" style="height:inherit"></iframe>
+  </div>
+
 
 </div>

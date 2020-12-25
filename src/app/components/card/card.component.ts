@@ -6,17 +6,23 @@ import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef, ViewEnc
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   template: `
-    <div class='card-title'>
-      {{title}}
+  <div class='ui-card'>
+    <div class='ui-card-title'>
+      <div class='ui-card-title-text h6'>
+        {{title}}
+      </div>
     </div>
-    <div class='card-content'>
-      <ng-content></ng-content>
+    <div class='ui-card-content'>
+        <ng-content></ng-content>
     </div>
-    <div class='card-actions' *ngIf='actions.length'>
-      <span *ngFor='let action of actions'>
-      <span><ng-template [ngTemplateOutlet]="action"></ng-template></span>
+    <div class='ui-card-actions' *ngIf='actions.length'>
+      <span class='ui-card-actions__action' *ngFor='let action of actions'>
+        <span>
+          <ng-template [ngTemplateOutlet]="action"></ng-template>
+        </span>
       </span>
     </div>
+  </div>
   `,
   styleUrls: ['./card.component.scss']
 })

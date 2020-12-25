@@ -140,7 +140,8 @@ $theme-background: (
   background: map_get($mat-grey, 50),
   hover: rgba(black, 0.04),
   disabled-button: rgba(black, 0.12),
-  flat-button: white
+  flat-button: white,
+  card-border: map_get($mat-grey, 500),
 );
 
 // Foreground палитра.
