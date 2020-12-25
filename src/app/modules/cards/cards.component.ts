@@ -1,23 +1,13 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-checkbox',
-  templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.scss']
+  selector: 'app-cards',
+  templateUrl: './cards.component.html',
+  styleUrls: ['./cards.component.scss']
 })
-export class CheckboxDocComponent implements OnInit , AfterViewInit{
-  che = true;
+export class CardsComponent implements OnInit {
   @ViewChild('iframe1') iframe1: ElementRef;
-  @ViewChild('iframe2') iframe2: ElementRef;
-  @ViewChild('iframe3') iframe3: ElementRef;
-  @ViewChild('iframe4') iframe4: ElementRef;
-  gistId1 = '507cc4203400bca4b45a6a11451e8282';
-  gistId2 = '60dc5a30d67f6754603c476f898fe5c7';
-  gistId3 = '95f2fe5a3071984afc14ee3eac43d542';
-  gistId4 = '82580b321c6503f029cda62b444393d2';
-  @ViewChild('iframe5') iframe5: ElementRef;
-  gistId5 = '9249845371d6a0199340a1af84e969fe';
-  file: string;
+  gistId1 = '9249845371d6a0199340a1af84e969fe';
   constructor() { }
 
   ngOnInit() {

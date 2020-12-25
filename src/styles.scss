@@ -8,6 +8,7 @@
 @import './app//components//select/select-theme.component.scss';
 @import './app//components//layout/layout.theme.scss';
 @import './app/components/menu/menu-theme.scss';
+@import './app/components/checkbox/checkbox-theme.component.scss';
 
 @import '~@angular/cdk/overlay-prebuilt.css';
 
@@ -337,6 +338,8 @@ $typography: typography-config();
 @include layout-theme($theme);
 
 @include menu-theme($theme);
+
+@include checkbox-color($theme);
 
 @include mat-base-typography($typography);
 

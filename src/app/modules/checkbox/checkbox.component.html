@@ -2,52 +2,65 @@
 background-color: white; height: 100%;">
   <h2 style="padding-left: 20px;">Checkbox</h2>
 
+  <div style="padding-left: 20px; margin-bottom: 16px;">
+     Это флаг-переключатель между двумя состояниями. 
+  </div>
 
-  <uikit-checkbox></uikit-checkbox>
+  <uikit-checkbox style="padding-left: 20px;" [ngModel]='che'></uikit-checkbox>
+  <uikit-checkbox style="padding-left: 20px;" ></uikit-checkbox>
 
   <h2 style="padding-left: 20px;">Этапы создания</h2>
 
-
-  <div>1.</div>
-  <div>
+  <div style=" padding-left: 20px;   display: block;
+  line-height: 1.5;">
     <div>
       Создадим в папке компонентов новый модуль src/app/components и назовем его checkbox
     </div>
 
     <div>
-     Перейдем в checkbox.module.ts и добавим экспорт  exports: [CheckboxComponent].
+      Перейдем в checkbox.module.ts и добавим экспорт exports: [CheckboxComponent].
+    </div>
+    <div>
+      Добавим checkbox-theme.component.scss - в нем будет содержаться стили которые относятся к теме и палитре.
+      в checkbox.component.scss буду содержаться базовые стили checkbox.
+      Структура файлов готова перейдем к описанию компонента.
     </div>
 
+    <br/>
+
     <div>
-      Перейдем в checkbox.module.ts и добавим экспорт  exports: [CheckboxComponent].
-     </div>
+      Откроем checkbox.component.ts
+      Далее напишем тело представления.
 
-      <div>
-        Добавим checkbox-theme.component.scss -  в нем будет содержаться стили которые относятся к теме и палитре.
-        в checkbox.component.scss буду содержаться базовые стили checkbox.
-        Структура файлов готова перейдем к описанию компонента.
+      <div style="height: 470px; width: 100%;
+        min-width: 550px;">
+        <iframe #iframe1 type="text/javascript" width="100%" frameborder="0" style="height:inherit"></iframe>
       </div>
 
-      <div>
-        Откроем checkbox.component.ts
-        Добавим selector: 'uikit-checkbox',
-        Добавим  exportAs: 'uiKitCheckbox',
-        Добавим  changeDetection: ChangeDetectionStrategy.OnPush,
-        Добавим encapsulation: ViewEncapsulation.None,
+    </div>
 
-        Далее напишем тело представления. 
+    <div>Добавим логику и реализуем ControlValueAccessor и хуки</div>
+    <div style="height: 1070px; width: 100%; min-width: 550px;">
+      <iframe #iframe2 type="text/javascript" width="100%" frameborder="0" style="height:inherit"></iframe>
+    </div>
+
+    <div>Свяжем модель и представление</div>
+    <div style="height: 650px; width: 100%; min-width: 550px;">
+      <iframe #iframe3 type="text/javascript" width="100%" frameborder="0" style="height:inherit"></iframe>
+    </div>
 
 
-        template: `
-          span
-            input
-              type='checkbox'
-        `,
+    <div>Изменим стили </div>
 
-         увидим что пока получается дефолтный чекбокс
-         
+    <div style="height: 1210px; width: 100%; min-width: 550px;">
+      <iframe #iframe4 type="text/javascript" width="100%" frameborder="0" style="height:inherit"></iframe>
+    </div>
 
-      </div>
+    <div>Свяжем UiKit палитру</div>
+
+    <div style="height: 570px; width: 100%; min-width: 550px;">
+      <iframe #iframe5 type="text/javascript" width="100%" frameborder="0" style="height:inherit"></iframe>
+    </div>
 
   </div>
 

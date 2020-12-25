@@ -44,6 +44,11 @@ const routes: Routes = [
   }
   ,
   {
+    path: 'cards',
+    loadChildren:  () => import('./modules/cards/cards.module').then(x => x.CardsModule)
+  }
+  ,
+  {
     path: 'ngabout',
     children: [
       {

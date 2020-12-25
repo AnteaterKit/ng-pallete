@@ -1,0 +1,18 @@
+
+@import '../../core/theme/theming.scss';
+
+@mixin checkbox-color($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $color:  get-color($primary);
+
+  .checkbox-inner:hover {
+    border: 2px solid $color;
+  }
+  .checkbox-checked .checkbox-inner {
+    background-color:  $color;
+    border: 2px solid  $color;
+  }
+}
