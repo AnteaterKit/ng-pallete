@@ -49,6 +49,11 @@ const routes: Routes = [
   }
   ,
   {
+    path: 'tooltip',
+    loadChildren:  () => import('./modules/tooltips/tooltips.module').then(x => x.TooltipsModule)
+  }
+  ,
+  {
     path: 'ngabout',
     children: [
       {
