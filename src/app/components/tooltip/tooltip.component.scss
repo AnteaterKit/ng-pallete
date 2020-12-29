@@ -1,11 +1,23 @@
-.tooltip-container {
 
-}
+@import '../../core/theme/theming.scss';
 
 .tooltip-body {
   padding: 16px 8px;
-    background-color: #c7c7c7;
-    border: 1px solid #3f51b5;
-    border-radius: 4px;
-    margin-top: 8px;
+  background-color: #c7c7c7;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+@mixin checkbox-color($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $theme-background: map-get($theme, theme-background);
+  
+  $colorBg:  get-color($theme-background, hover);
+
+  .tooltip-body {
+    background-color: $colorBg;
+  }
 }

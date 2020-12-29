@@ -2,7 +2,7 @@ import { AfterViewInit, ChangeDetectionStrategy,
   ChangeDetectorRef,
    Component, ComponentFactory, ComponentFactoryResolver, Directive, ElementRef, Input,
   OnDestroy, OnInit, Renderer2, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { CdkConnectedOverlay, CdkOverlayOrigin, ConnectedOverlayPositionChange, ConnectionPositionPair } from '@angular/cdk/overlay';
+import { CdkConnectedOverlay, CdkOverlayOrigin, ConnectedOverlayPositionChange, ConnectionPositionPair, OverlayPositionBuilder } from '@angular/cdk/overlay';
 
 @Directive ({
   selector: '[ui-tooltip]',
@@ -34,6 +34,7 @@ export class TooltipDirective implements OnInit, OnDestroy, AfterViewInit {
   createComponent(): void {
     const componentRef = this.hostView.createComponent(this.componentFactory);
     this.component = componentRef.instance as TooltipComponent;
+    this.component.setTitle(this.content);
     this.component.setOverlayOrigin({ elementRef: this.elementRef });
   }
 
@@ -44,7 +45,6 @@ export class TooltipDirective implements OnInit, OnDestroy, AfterViewInit {
     });
     this.disposables.push(listnerMouseenter);
     const listnerMouseleave = this.renderer.listen(el, 'mouseleave', () => {
-      console.log('mouseleave');
       this.component.hide();
     });
     this.disposables.push(listnerMouseleave);
@@ -73,7 +73,7 @@ export class TooltipDirective implements OnInit, OnDestroy, AfterViewInit {
     >
     <div class='tooltip-container'>
       <div class='tooltip-body'>
-        sdfkjshfksahfdh
+        {{title}}
       </div>
     </div>
     </ng-template>
@@ -81,14 +81,16 @@ export class TooltipDirective implements OnInit, OnDestroy, AfterViewInit {
   styleUrls: ['./tooltip.component.scss']
 })
 export class TooltipComponent implements OnInit {
+  title: string;
   // Директива для упрощения декларативного создания наложения с помощью FlexibleConnectedPositionStrategy
   @ViewChild('overlay', { static: false }) overlay!: CdkConnectedOverlay;
   // Директива для использования элемента в качестве источника для наложения с помощью ConnectedPositionStrategy.
   origin!: CdkOverlayOrigin;
-  positions = new ConnectionPositionPair({ originX: 'center', originY: 'top' }, { overlayX: 'center', overlayY: 'bottom' });
+  positions = [new ConnectionPositionPair({ originX: 'center', originY: 'top' },
+                                         { overlayX: 'center', overlayY: 'bottom' },  0, -16)];
   visible = false;
   constructor(public cdr: ChangeDetectorRef) { }
-
+  overlayRef: any;
   ngOnInit(): void {
   }
 
@@ -99,10 +101,14 @@ export class TooltipComponent implements OnInit {
 
   hide(): void {
     this.visible = false;
-   // this.cdr.markForCheck();
+    this.cdr.markForCheck();
   }
 
   show(): void {
     this.visible = true;
+  }
+
+  setTitle(title: string): void {
+    this.title = title;
   }
 }
