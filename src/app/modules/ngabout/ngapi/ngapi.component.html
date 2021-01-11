@@ -29,16 +29,23 @@
       <div class="card-header ac-six">ViewChild, ElementRef, TemplateRef, ViewContainerRef</div>
       <div class="card-content ac-six">
         <div>
-          ViewChild: получает доступ в DOM элементу
+          ViewChild: получает доступ к DOM элементу и предоставляет API  для нативного взаимодействия, так и через API компонента. 
+          В случае нативного взаимодейстия он возвращает ElementRef и использует проперти nativeElement. В случае компонента возвращает ссылку на экземпляр класса компонента его публичные методы.
+          C точки зрения применения nativeElement можно использовать для вычисления ширины выпадающего списка из select компонента 
+          nativeElement.getBoundingClientRect().width для динамического расчета.
         </div>
         <div>
-          Основные черты: в одном DOM элементе может быть 1 компонент, в отличие от директив. Есть View (template).
-          Внутри
-          компонента используются пайпы.
+          ElementRef: апи над нативным DOM. Можно использовать в директивах и добавлять различные классы к элементу.
+          ElementRef на текущий элемент можно получить прямо из конструктора компонента. Применяется в кнопках, input, tooltip  и т.д. 
         </div>
         <div>
-          Когда использовать: создание представления.
+          TemplateRef: это ссылка на шаблон, его можно испльзовать для создания динамических input компонентов для передачи туда раздичных аффиксов. 
+          Можно также передавать список шаблонов действий для динамических действий или меню.
         </div>
+        <div>
+          ViewContainerRef: предоставляет API для динамического создания новых компонентов представлений в текущем компоненте.
+          Например в автокомплите для создания списка элементов. 
+          </div>
       </div>
     </div>
   </div>
@@ -48,16 +55,14 @@
       <div class="card-header pr-five">ControlValueAccessor</div>
       <div class="card-content pr-five">
         <div>
-          Это класс реализующий interface PipeTransform. Нужны для преобразования данных при их выводе в HTML.
-        </div>
-        <div>
-          Основные черты: Реализует метод transform(value: any, ...args: any[]) и возвращает преобразованное значение.
-        </div>
-        <div>
-          Когда использовать: курсы валют, форматирование чисел и дат, преобразование Enum в текст.
-        </div>
-        <div>
-          Частая ошибка - использовать функцию в шаблоне там где нужен Pipe.
+          ControlValueAccessor: интерфейс состоящий из четырех методов  writeValue(value: any),
+          registerOnChange,
+          registerOnTouched, 
+          setDisabledState.
+          Он служить для того чтобы работали  Angular привязки и можно было использовать ngModel или реактивные формы.
+          простой input имеет встроенную поддержку этого функционала, но другие сложные элементы вседа потребуют реализации этого интерфейса.
+          <br/>
+          https://habr.com/ru/company/tinkoff/blog/443714/
         </div>
       </div>
     </div>
@@ -65,43 +70,28 @@
 
   <div style="width: 100%;" class="card card-detail ac-six">
     <div class="card-wrapper ac-six">
-      <div class="card-header ac-six">ChangeDetectorRef</div>
+      <div class="card-header ac-six">ChangeDetectionStrategy, ChangeDetectorRef</div>
       <div class="card-content ac-six">
         <div>
-          Это класс реализующий interface PipeTransform. Нужны для преобразования данных при их выводе в HTML.
+          ChangeDetectionStrategy: По умолчанию Angular использует ChangeDetectionStrategy.Default стратегию обнаружения изменений.
+          ChangeDetectionStrategy.Default работает таким образом, что каждый раз, когда что-то меняется в нашем приложении, в результате различных пользовательских событий, таймеров, XHR, промисов и т.д., обнаружение изменений будет запускаться по всем компонентам.
+          ChangeDetectionStrategy.OnPush.
+
+
+          Это означает, что компонент теперь зависит только от @inputs() параметров, и будет проверятся только при таких условиях:
+          1. Изменилась ссылка input параметра
+          2. Событие внутри компонента или его потомках
+          3. Ручной запуск обнаружения изменений
+           <br />
+          https://habr.com/ru/company/infopulse/blog/358860/
         </div>
         <div>
-          Основные черты: Реализует метод transform(value: any, ...args: any[]) и возвращает преобразованное значение.
-        </div>
-        <div>
-          Когда использовать: курсы валют, форматирование чисел и дат, преобразование Enum в текст.
-        </div>
-        <div>
-          Частая ошибка - использовать функцию в шаблоне там где нужен Pipe.
+          ChangeDetectorRef: UiKit должен быть производительным, а значит нужно использовать стратегию обнаруженя изменений OnPush.
+          Но тогда на наши плечи ложится управление изменениями. Для этого используется ChangeDetectorRef
+           - позволяет взять управление механизмом отслеживания изменений полностью под свой контроль.
         </div>
       </div>
     </div>
   </div>
-
-  <div style="width: 100%;" class="card card-detail pr-five">
-    <div class="card-wrapper pr-five">
-      <div class="card-header pr-five">ChangeDetectionStrategy</div>
-      <div class="card-content pr-five">
-        <div>
-          Это класс реализующий interface PipeTransform. Нужны для преобразования данных при их выводе в HTML.
-        </div>
-        <div>
-          Основные черты: Реализует метод transform(value: any, ...args: any[]) и возвращает преобразованное значение.
-        </div>
-        <div>
-          Когда использовать: курсы валют, форматирование чисел и дат, преобразование Enum в текст.
-        </div>
-        <div>
-          Частая ошибка - использовать функцию в шаблоне там где нужен Pipe.
-        </div>
-      </div>
-    </div>
-  </div>
-
 
 </div>
