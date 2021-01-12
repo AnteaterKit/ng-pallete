@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input, ViewChild, TemplateRef, ElementRef, QueryList, ContentChildren, AfterContentInit, AfterViewInit, ViewChildren } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input, ViewChild, TemplateRef, ElementRef, QueryList, ContentChildren, AfterContentInit, AfterViewInit, ViewChildren, ChangeDetectorRef } from '@angular/core';
 import { merge } from 'rxjs';
 import { ShAutocompleteOptionComponent } from './autocomplete-option.component';
 
@@ -9,6 +9,7 @@ import { ShAutocompleteOptionComponent } from './autocomplete-option.component';
   styleUrls: ['./autocomplete.component.scss'],
   preserveWhitespaces: false,
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AutocompleteComponent implements AfterContentInit, AfterViewInit {
 
@@ -24,7 +25,7 @@ export class AutocompleteComponent implements AfterContentInit, AfterViewInit {
 
   @ViewChildren(ShAutocompleteOptionComponent) contentOptions!: QueryList<ShAutocompleteOptionComponent>;
   s  = [];
-  constructor() { }
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
   ngAfterContentInit(): void {
     this.contentOptions.changes.subscribe(x => {
@@ -68,6 +69,10 @@ export class AutocompleteComponent implements AfterContentInit, AfterViewInit {
         this.clearSelectedOptions(x);
       });
     }
+  }
+
+  setVisibility(): void {
+    this.changeDetectorRef.markForCheck();
   }
 
   clearSelectedOptions(skip?: any): void {

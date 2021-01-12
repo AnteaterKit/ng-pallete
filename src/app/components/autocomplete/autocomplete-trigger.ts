@@ -122,7 +122,7 @@ export const SH_AUTOCOMPLETE_VALUE_ACCESSOR: ExistingProvider = {
           }
 
         this.shAutocomplete.isOpen = true;
-        this.shAutocomplete.subscirbeOptions();
+        this.shAutocomplete.setVisibility();
     }
 
     /**
