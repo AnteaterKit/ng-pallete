@@ -21,7 +21,7 @@ background-color: white; height: 100%;">
 
         <div>
           <input-field [shSuffix]='suffixTemplate'>
-            <input placeholder="автокомплит" sh-input [shAutocomplete]='auto'>
+            <input placeholder="автокомплит" sh-input [shAutocomplete]='auto'  [(ngModel)]="value">
           </input-field>
           <sh-autocomplete #auto [shDataSource]='dataSource'>
           </sh-autocomplete>

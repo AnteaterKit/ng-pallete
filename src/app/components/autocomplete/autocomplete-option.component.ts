@@ -37,7 +37,6 @@ export class ShAutocompleteOptionComponent {
   selectInternal(): void {
     console.log('selectInternal');
     this.selectionChange.emit(this);
-   //this.select();
     this.changeDetectorRef.markForCheck();
   }
 
@@ -51,11 +50,11 @@ export class ShAutocompleteOptionComponent {
     this.changeDetectorRef.markForCheck();
   }
 
-  select() {
+  select(): void {
     this.selected = true;
   }
 
-  deselect() {
+  deselect(): void {
     this.selected = false;
   }
 }

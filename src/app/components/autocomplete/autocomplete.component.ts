@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input, ViewChild, TemplateRef, ElementRef, QueryList, ContentChildren, AfterContentInit, AfterViewInit, ViewChildren, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input, ViewChild, TemplateRef, ElementRef, QueryList, ContentChildren, AfterContentInit, AfterViewInit, ViewChildren, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { merge } from 'rxjs';
 import { ShAutocompleteOptionComponent } from './autocomplete-option.component';
 
@@ -15,8 +15,11 @@ export class AutocompleteComponent implements AfterContentInit, AfterViewInit {
 
   @Input() shWidth?: number;
   @Input() shDataSource?: any;
+  @Output()
+  readonly selectionChange: EventEmitter<ShAutocompleteOptionComponent> = new EventEmitter<ShAutocompleteOptionComponent>();
 
   isOpen = false;
+  activeItem: any;
 
   /** cdk-overlay */
   @ViewChild(TemplateRef, { static: false }) template?: TemplateRef<{}>;
@@ -28,33 +31,22 @@ export class AutocompleteComponent implements AfterContentInit, AfterViewInit {
   constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
   ngAfterContentInit(): void {
-    this.contentOptions.changes.subscribe(x => {
-      console.log(x);
-    });
-   
-    console.log(this.contentOptions);
   }
 
   ngAfterViewInit(): void {
     this.contentOptions.changes.subscribe(x => {
-      console.log(x);
       this.subscirbeOptions();
     });
-   
-    console.log(this.contentOptions);
-    // this.subscirbeOptions();
   }
 
   public subscirbeOptions(): void {
-    console.log(this.contentOptions);
     if (this.contentOptions) {
-      console.log('79878');
-
       const changesMerge = merge<any>(...this.contentOptions.map(x => x.selectionChange));
       changesMerge.subscribe(x => {
-        console.log(x);
         x.select();
+        this.activeItem = x;
         this.clearSelectedOptions(x);
+        this.selectionChange.emit(x);
       });
     }
   }
@@ -65,10 +57,13 @@ export class AutocompleteComponent implements AfterContentInit, AfterViewInit {
 
   clearSelectedOptions(skip?: any): void {
     this.contentOptions.forEach(option => {
-      console.log(option);
       if (option !== skip) {
         option.deselect();
       }
     });
+  }
+
+  public getOption(value: ShAutocompleteOptionComponent): string {
+    return value.label;
   }
 }
