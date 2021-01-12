@@ -50,19 +50,7 @@ export class AutocompleteComponent implements AfterContentInit, AfterViewInit {
     if (this.contentOptions) {
       console.log('79878');
 
-      this.contentOptions.forEach(x => {
-        const ddd = x.selectionChange.subscribe(d =>  {
-          console.log(d);
-        });
-        this.s.push(ddd);
-      });
-
-      console.log(this.s);
-
       const changesMerge = merge<any>(...this.contentOptions.map(x => x.selectionChange));
-      changesMerge.forEach(d => {
-        console.log(d);
-      });
       changesMerge.subscribe(x => {
         console.log(x);
         x.select();
