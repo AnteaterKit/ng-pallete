@@ -17,8 +17,6 @@ import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input, C
     '[class.sh-select-item-option-selected]': 'selected',
     '[class.sh-select-item-option-active]': 'active',
     '[class.sh-select-item-option-disabled]': 'shDisabled',
-   // '[attr.aria-selected]': 'selected.toString()',
-   // '[attr.aria-disabled]': 'shDisabled.toString()',
     '(click)': 'selectInternal()',
     '(mouseenter)': 'onMouseEnter()',
     '(mouseleave)': 'onMouseLeave()',
@@ -56,5 +54,10 @@ export class ShAutocompleteOptionComponent {
 
   deselect(): void {
     this.selected = false;
+  }
+
+  public setActive(): void {
+    this.selected = true;
+    this.changeDetectorRef.markForCheck();
   }
 }

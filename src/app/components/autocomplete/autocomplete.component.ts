@@ -64,6 +64,19 @@ export class AutocompleteComponent implements AfterContentInit, AfterViewInit {
   }
 
   public getOption(value: ShAutocompleteOptionComponent): string {
-    return value.label;
+    if (value) {
+      return value.label;
+    }
+    return '';
+  }
+
+  public setActiveItem(value: ShAutocompleteOptionComponent): void {
+    if (value && this.contentOptions) {
+      this.activeItem = value;
+      const item = this.contentOptions.find(x => x.value === value);
+      if (item) {
+        item.setActive();
+      }
+    }
   }
 }

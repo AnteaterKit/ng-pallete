@@ -72,8 +72,10 @@ export class ShAutocompleteTriggerDirective implements ControlValueAccessor, OnD
   _onChange: (value: any) => void = () => { };
   _onTouched = () => { };
 
-  private setTriggerValue(value: ShAutocompleteOptionComponent): void {
+  private setTriggerValue(value: any): void {
     // устанавливаем значения в ng контрол и нативный элемент
+    console.log(value);
+    this.shAutocomplete.setActiveItem(value);
     this.elementRef.nativeElement.value = this.shAutocomplete.getOption(value);
 
   }
@@ -103,9 +105,6 @@ export class ShAutocompleteTriggerDirective implements ControlValueAccessor, OnD
   }
 
   private attachOverlay(): void {
-    this.shAutocomplete.selectionChange.subscribe((option: ShAutocompleteOptionComponent) => {
-      this.setValueAndClose(option);
-    });
     if (!this.portal && this.shAutocomplete.template) {
       // берем шаблон ангуляр компонента и отображаем его в другом месте
       this.portal = new TemplatePortal(this.shAutocomplete.template, this.viewContainerRef);
@@ -128,6 +127,16 @@ export class ShAutocompleteTriggerDirective implements ControlValueAccessor, OnD
       //     this.closePanel();
       //  });
     }
+    this.shAutocomplete.selectionChange.subscribe((option: ShAutocompleteOptionComponent) => {
+      this.setValueAndClose(option.value);
+    });
+    this.shAutocomplete.contentOptions.changes.subscribe(x => {
+      console.log('this.shAutocomplete.activeItem.setActive();');
+      // this.shAutocomplete.activeItem.setActive();
+      setTimeout(t => {
+        this.shAutocomplete.setActiveItem(this.shAutocomplete.activeItem);
+      });
+    });
 
     this.shAutocomplete.isOpen = true;
     this.shAutocomplete.setVisibility();
