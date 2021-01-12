@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sh-autocomplete-option',
@@ -19,21 +19,43 @@ import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input } 
     '[class.sh-select-item-option-disabled]': 'shDisabled',
    // '[attr.aria-selected]': 'selected.toString()',
    // '[attr.aria-disabled]': 'shDisabled.toString()',
-    '(click)': 'selectViaInteraction()',
+    '(click)': 'selectInternal()',
     '(mouseenter)': 'onMouseEnter()',
+    '(mouseleave)': 'onMouseLeave()',
     '(mousedown)': '$event.preventDefault()'
   }
 })
 export class ShAutocompleteOptionComponent {
-
   @Input() value: any;
   @Input() label?: string;
-  constructor() { }
+  @Output() readonly selectionChange = new EventEmitter<any>();
 
-  selectViaInteraction(): void {
+  active = false;
+  selected = false;
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
+
+  selectInternal(): void {
+    console.log('selectInternal');
+    this.selectionChange.emit(this);
+   //this.select();
+    this.changeDetectorRef.markForCheck();
   }
 
-  onMouseEnter() {
+  onMouseEnter(): void {
+    this.active = true;
+    this.changeDetectorRef.markForCheck();
+  }
 
+  onMouseLeave(): void {
+    this.active = false;
+    this.changeDetectorRef.markForCheck();
+  }
+
+  select() {
+    this.selected = true;
+  }
+
+  deselect() {
+    this.selected = false;
   }
 }

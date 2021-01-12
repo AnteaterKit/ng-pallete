@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input, ViewChild, TemplateRef, ElementRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input, ViewChild, TemplateRef, ElementRef, QueryList, ContentChildren, AfterContentInit, AfterViewInit, ViewChildren } from '@angular/core';
+import { merge } from 'rxjs';
 import { ShAutocompleteOptionComponent } from './autocomplete-option.component';
 
 @Component({
@@ -7,20 +8,74 @@ import { ShAutocompleteOptionComponent } from './autocomplete-option.component';
   templateUrl: './autocomplete.component.html',
   styleUrls: ['./autocomplete.component.scss'],
   preserveWhitespaces: false,
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class AutocompleteComponent  {
+export class AutocompleteComponent implements AfterContentInit, AfterViewInit {
 
   @Input() shWidth?: number;
   @Input() shDataSource?: any;
 
   isOpen = false;
 
-   /** cdk-overlay */
-   @ViewChild(TemplateRef, { static: false }) template?: TemplateRef<{}>;
-   @ViewChild('panel', { static: false }) panel?: ElementRef;
-   @ViewChild('content', { static: false }) content?: ElementRef;
+  /** cdk-overlay */
+  @ViewChild(TemplateRef, { static: false }) template?: TemplateRef<{}>;
+  @ViewChild('panel', { static: false }) panel?: ElementRef;
+  @ViewChild('content', { static: false }) content?: ElementRef;
 
+  @ViewChildren(ShAutocompleteOptionComponent) contentOptions!: QueryList<ShAutocompleteOptionComponent>;
+  s  = [];
   constructor() { }
+
+  ngAfterContentInit(): void {
+    this.contentOptions.changes.subscribe(x => {
+      console.log(x);
+    });
+   
+    console.log(this.contentOptions);
+  }
+
+  ngAfterViewInit(): void {
+    this.contentOptions.changes.subscribe(x => {
+      console.log(x);
+      this.subscirbeOptions();
+    });
+   
+    console.log(this.contentOptions);
+    // this.subscirbeOptions();
+  }
+
+  public subscirbeOptions(): void {
+    console.log(this.contentOptions);
+    if (this.contentOptions) {
+      console.log('79878');
+
+      this.contentOptions.forEach(x => {
+        const ddd = x.selectionChange.subscribe(d =>  {
+          console.log(d);
+        });
+        this.s.push(ddd);
+      });
+
+      console.log(this.s);
+
+      const changesMerge = merge<any>(...this.contentOptions.map(x => x.selectionChange));
+      changesMerge.forEach(d => {
+        console.log(d);
+      });
+      changesMerge.subscribe(x => {
+        console.log(x);
+        x.select();
+        this.clearSelectedOptions(x);
+      });
+    }
+  }
+
+  clearSelectedOptions(skip?: any): void {
+    this.contentOptions.forEach(option => {
+      console.log(option);
+      if (option !== skip) {
+        option.deselect();
+      }
+    });
+  }
 }

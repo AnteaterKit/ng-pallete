@@ -69,6 +69,7 @@ export const SH_AUTOCOMPLETE_VALUE_ACCESSOR: ExistingProvider = {
     }
 
     handleInput(event: KeyboardEvent): void {
+    
         console.log(event);
         const target = event.target as HTMLInputElement;
         // const document = this.document as Document;
@@ -121,6 +122,7 @@ export const SH_AUTOCOMPLETE_VALUE_ACCESSOR: ExistingProvider = {
           }
 
         this.shAutocomplete.isOpen = true;
+        this.shAutocomplete.subscirbeOptions();
     }
 
     /**

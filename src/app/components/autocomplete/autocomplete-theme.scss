@@ -1,17 +1,25 @@
 @mixin sh-autocomplete-color($config-or-theme) {
 
-  // $config: mat-get-color-config($config-or-theme);
-  // $foreground: map-get($config, foreground);
- //  $background: map-get($config, background);
-
+   $primary: map-get($theme, primary);
+   $color:  get-color($primary, 50);
+   $colorSelected:  get-color($primary, 100);
+ 
    .sh-autocomplete-panel {
        background: whitesmoke; // mat-color($background, card);
        color: black; // mat-color($foreground, text);
+   }
+
+   .sh-select-item-option-active {
+      background-color: $color;
+   }
+
+   .sh-select-item-option-selected {
+      background-color: $colorSelected;
    }
 }
 
 
 @mixin sh-autocomplete-theme($theme) {
-   $color: mat-get-color-config($theme);
-   @include sh-autocomplete-color($color);
+   // $color: mat-get-color-config($theme);
+   @include sh-autocomplete-color($theme);
 }

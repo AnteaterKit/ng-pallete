@@ -10,6 +10,7 @@
 @import './app/components/menu/menu-theme.scss';
 @import './app/components/checkbox/checkbox-theme.component.scss';
 @import './app/components/card/card.component.scss';
+@import './app//components/autocomplete/autocomplete-theme.scss';
 
 @import '~@angular/cdk/overlay-prebuilt.css';
 
@@ -345,6 +346,8 @@ $typography: typography-config();
 @include card-color($theme);
 
 @include mat-base-typography($typography);
+
+@include sh-autocomplete-theme($theme);
 
 @include colors($theme);
 
