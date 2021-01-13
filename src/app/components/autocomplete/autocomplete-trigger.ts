@@ -60,6 +60,7 @@ export class ShAutocompleteTriggerDirective implements ControlValueAccessor, OnD
     Promise.resolve(null).then(() => this.setTriggerValue(value));
   }
   registerOnChange(fn: any): void {
+    console.log('dd');
     this._onChange = fn;
   }
   registerOnTouched(fn: any): void {
@@ -77,7 +78,7 @@ export class ShAutocompleteTriggerDirective implements ControlValueAccessor, OnD
     console.log(value);
     this.shAutocomplete.setActiveItem(value);
     this.elementRef.nativeElement.value = this.shAutocomplete.getOption(value);
-
+    this._onChange(value);
   }
 
   setValueAndClose(value: ShAutocompleteOptionComponent): void {
@@ -95,13 +96,13 @@ export class ShAutocompleteTriggerDirective implements ControlValueAccessor, OnD
       value = value === '' ? null : parseFloat(value);
     }
 
+    this._onChange(value);
+
     this.openPanel();
   }
 
   openPanel(): void {
-    // this.previousValue = this.elementRef.nativeElement.value;
     this.attachOverlay();
-    // this.updateStatus();
   }
 
   private attachOverlay(): void {
@@ -131,8 +132,6 @@ export class ShAutocompleteTriggerDirective implements ControlValueAccessor, OnD
       this.setValueAndClose(option.value);
     });
     this.shAutocomplete.contentOptions.changes.subscribe(x => {
-      console.log('this.shAutocomplete.activeItem.setActive();');
-      // this.shAutocomplete.activeItem.setActive();
       setTimeout(t => {
         this.shAutocomplete.setActiveItem(this.shAutocomplete.activeItem);
       });

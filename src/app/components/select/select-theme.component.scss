@@ -4,6 +4,7 @@
 
 .select input {
   padding: 4px 11px;
+  height: 32px;
 }
 
 .select-items-container {
@@ -24,6 +25,9 @@
 .select-item-option-content {
   padding-left: 11px;
   padding-right: 11px;
+  height: 32px;
+  display: flex;
+  align-items: center;
 }
 
 .select-item-option-content:hover {

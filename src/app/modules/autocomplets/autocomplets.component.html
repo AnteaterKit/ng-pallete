@@ -17,13 +17,15 @@ background-color: white; height: 100%;">
   <div style="display: flex;margin: 20px;">
     <div style="margin: 16px; width: 70%;">
       <h4>Автокомплит</h4>
+      {{myControl.value.label}}
       <div class='wrap'>
 
+       
         <div>
           <input-field [shSuffix]='suffixTemplate'>
-            <input placeholder="автокомплит" sh-input [shAutocomplete]='auto'  [(ngModel)]="value">
+            <input placeholder="автокомплит" sh-input [shAutocomplete]='auto'  [formControl]="myControl">
           </input-field>
-          <sh-autocomplete #auto [shDataSource]='dataSource'>
+          <sh-autocomplete #auto [shDataSource]='filteredOptions'>
           </sh-autocomplete>
         </div>
 

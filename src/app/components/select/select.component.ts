@@ -55,6 +55,8 @@ import { startWith, switchMap, takeUntil } from 'rxjs/operators';
   }
 })
 export class SelectComponent implements  ControlValueAccessor, AfterContentInit, AfterViewInit, OnInit {
+
+  constructor(private cdr: ChangeDetectorRef) { }
   dropdownClassName = 'dropdownClassName';
   triggerWidth: number | null = null;
   open = false;
@@ -62,16 +64,16 @@ export class SelectComponent implements  ControlValueAccessor, AfterContentInit,
   activatedValue: any;
   listOfValue: any[] = [];
   value: any | any[];
-  onChange = () => {};
-  onTouched = () => {};
-
-  @Input() compareWith: (o1: any, o2: any) => boolean = (o1: any, o2: any) => o1 === o2;
 
   @ContentChildren(OptionComponent, { descendants: true }) listOfOptionComponent!: QueryList<OptionComponent>;
   private listOfTemplateItem$ = new BehaviorSubject<any[]>([]);
 
   @ViewChild(CdkOverlayOrigin, { static: true, read: ElementRef }) originElement!: ElementRef;
   @ViewChild(CdkConnectedOverlay, { static: true }) cdkConnectedOverlay!: CdkConnectedOverlay;
+  onChange = () => {};
+  onTouched = () => {};
+
+  @Input() compareWith: (o1: any, o2: any) => boolean = (o1: any, o2: any) => o1 === o2;
 
 
   ngOnInit(): void {
@@ -104,8 +106,6 @@ export class SelectComponent implements  ControlValueAccessor, AfterContentInit,
   updateListOfContainerItem(listOfTemplateItem: any[]): void {
     this.listOfContainerItem = listOfTemplateItem;
   }
-
-  constructor(private cdr: ChangeDetectorRef) { }
 
   writeValue(modelValue: any): void {
     if (this.value !== modelValue) {
