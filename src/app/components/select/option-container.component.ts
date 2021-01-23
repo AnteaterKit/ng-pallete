@@ -30,7 +30,7 @@ import {
               [compareWith]="compareWith"
               [activatedValue]="activatedValue"
               [listOfSelectedValue]="listOfSelectedValue"
-              [value]="item.value"
+              [value]="item"
               (itemHover)="onItemHover($event)"
               (itemClick)="onItemClick($event)"
           >

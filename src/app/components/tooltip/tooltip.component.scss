@@ -8,6 +8,21 @@
   font-size: 14px;
 }
 
+.tooltip-body::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  background-color: inherit;
+  transform: rotate(45deg);
+  background-color:  #c7c7c7;
+  bottom: -8px;
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
 @mixin checkbox-color($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);

@@ -54,8 +54,6 @@ export class OptionItemComponent implements OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     const { value, activatedValue, listOfSelectedValue } = changes;
-    console.log(value);
-    console.log(listOfSelectedValue);
     if (value || listOfSelectedValue) {
        this.selected = this.listOfSelectedValue.some(v => this.compareWith(v, this.value));
     }

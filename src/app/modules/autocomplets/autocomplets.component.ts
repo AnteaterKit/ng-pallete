@@ -14,7 +14,7 @@ export class AutocompletsComponent implements OnInit {
   filteredOptions = [];
   myControl = new FormControl();
   constructor() {
-    this.value = {label: 'framework', value: 'value'};
+    this.value = {label: 'ant', value: 'value'};
     this.myControl.patchValue(this.value);
     // {label: '55', value: 'drer'}, {label: 'sdnglkangrkj', value: 'drer'}
     this.dataSource.push({label: 'typescript', value: 'drer'});
@@ -23,7 +23,7 @@ export class AutocompletsComponent implements OnInit {
     this.dataSource.push( this.value );
     this.dataSource.push({label: 'react', value: 'drer'});
     this.dataSource.push({label: 'vue', value: 'drer'});
-    this.dataSource.push({label: 'ant', value: 'drer'});
+    this.dataSource.push({label: 'framework', value: 'drer'});
     this.dataSource.push({label: 'matreial', value: 'drer'});
     console.log(this.dataSource);
     this.filteredOptions = this.dataSource;

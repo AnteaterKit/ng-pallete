@@ -20,7 +20,7 @@ import { startWith, switchMap, takeUntil } from 'rxjs/operators';
   template: `
     <ng-container>
       <div class='select'>
-        <input [value]='value' cdkOverlayOrigin #origin="cdkOverlayOrigin" disabled='true' />
+        <input [value]='value.label' cdkOverlayOrigin #origin="cdkOverlayOrigin" disabled='true' />
         <div class='select-arrow'>
         </div>
       </div>
@@ -63,7 +63,7 @@ export class SelectComponent implements  ControlValueAccessor, AfterContentInit,
   listOfContainerItem = [];
   activatedValue: any;
   listOfValue: any[] = [];
-  value: any | any[];
+  value: any | any[] = {};
 
   @ContentChildren(OptionComponent, { descendants: true }) listOfOptionComponent!: QueryList<OptionComponent>;
   private listOfTemplateItem$ = new BehaviorSubject<any[]>([]);
@@ -108,6 +108,7 @@ export class SelectComponent implements  ControlValueAccessor, AfterContentInit,
   }
 
   writeValue(modelValue: any): void {
+    console.log(modelValue);
     if (this.value !== modelValue) {
       this.value = modelValue;
       this.listOfValue = [];
