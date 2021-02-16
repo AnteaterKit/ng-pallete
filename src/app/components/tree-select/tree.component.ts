@@ -1,5 +1,5 @@
 import { CdkConnectedOverlay, CdkOverlayOrigin, ConnectionPositionPair } from '@angular/cdk/overlay';
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { TreeNode } from './tree-select.model';
 
 @Component({
@@ -21,6 +21,7 @@ import { TreeNode } from './tree-select.model';
           [node]='item'
           [isExpanded]='item.isExpanded'
           (expandedChange)='expandedChange($event)'
+          (nodeClicked)='nodeClicked($event)'
           >
         </tree-node>
       </div>
@@ -32,38 +33,22 @@ export class InternalTreeSelectComponent implements OnInit {
   datasource: Array<TreeNode> = [];
   expanded: Array<TreeNode> = [];
   minWidth = 120;
-   // Директива для упрощения декларативного создания наложения с помощью FlexibleConnectedPositionStrategy
-   @ViewChild('overlay', { static: false }) overlay!: CdkConnectedOverlay;
-   // Директива для использования элемента в качестве источника для наложения с помощью ConnectedPositionStrategy.
-   origin!: CdkOverlayOrigin;
-   positions = [new ConnectionPositionPair({ originX: 'start', originY: 'bottom' },
-     { overlayX: 'start', overlayY: 'top' }, 0, 0)];
-   visible = false;
-   overlayRef: any;
+  // Директива для упрощения декларативного создания наложения с помощью FlexibleConnectedPositionStrategy
+  @ViewChild('overlay', { static: false }) overlay!: CdkConnectedOverlay;
+  // Директива для использования элемента в качестве источника для наложения с помощью ConnectedPositionStrategy.
+  origin!: CdkOverlayOrigin;
+  positions = [new ConnectionPositionPair({ originX: 'start', originY: 'bottom' },
+    { overlayX: 'start', overlayY: 'top' }, 0, 0)];
+  visible = false;
 
-  ngOnInit(): void {
-    const node = new TreeNode();
-    node.level = 0;
-    node.title = 'NG ui library';
+  @Output()
+  selectedNodeChanged = new EventEmitter<TreeNode>();
 
-    const node1 = new TreeNode();
-    node1.level = 1;
-    node1.title = 'Open source';
-    node1.parent = node;
-
-    const node2 = new TreeNode();
-    node2.level = 1;
-    node2.title = 'Commercial';
-    node2.parent = node;
-
-    this.datasource.push(node);
-    this.datasource.push(node1);
-    this.datasource.push(node2);
-
-    this.expanded = this.datasource.filter(x => x.level === 0);
-  }
 
   constructor(public cdr: ChangeDetectorRef, public elementRef: ElementRef) { }
+
+  ngOnInit(): void {
+  }
 
   setOverlayOrigin(origin: CdkOverlayOrigin): void {
     this.origin = origin;
@@ -72,12 +57,40 @@ export class InternalTreeSelectComponent implements OnInit {
   }
 
   setOriginWidth(): void {
-    this.minWidth =  this.origin.elementRef.nativeElement.getBoundingClientRect().width;
+    this.minWidth = this.origin.elementRef.nativeElement.getBoundingClientRect().width;
+  }
+
+  setDataSource(datasource = []): void {
+    datasource.forEach((x) => {
+      const node = new TreeNode();
+      node.id = x.id;
+      node.level = 0;
+      node.title = x.title;
+      node.isLeaf = !x.children;
+      this.datasource.push(node);
+      this.setChildren(x, node, 1);
+    });
+
+    this.expanded = this.datasource.filter(t => t.level === 0);
+  }
+
+  setChildren(parent, parentNode, index): void {
+    if (parent.children) {
+      parent.children.forEach(x => {
+        const node = new TreeNode();
+        node.id = x.id;
+        node.level = index;
+        node.title = x.title;
+        node.parent = parentNode;
+        node.isLeaf = !x.children;
+        this.datasource.push(node);
+        this.setChildren(x, node, node.level + 1);
+      });
+    }
   }
 
   hide(): void {
     this.visible = false;
-    this.cdr.markForCheck();
   }
 
   show(): void {
@@ -88,12 +101,34 @@ export class InternalTreeSelectComponent implements OnInit {
     if (node.isExpanded) {
       const children = this.datasource.filter(x => x.parent === node);
       if (children) {
-        this.expanded.push(...children);
+        this.insertAt(this.expanded, this.expanded.indexOf(node) + 1, children);
       }
     } else {
       const children = this.datasource.filter(x => x.parent === node);
+      children.forEach(ch => {
+        ch.isExpanded = false;
+        this.removeFromExpanded(ch);
+      });
       this.expanded = this.expanded.filter(x => children.indexOf(x) === -1);
     }
+  }
+
+  removeFromExpanded(node: TreeNode): void {
+    const children = this.datasource.filter(x => x.parent === node);
+    this.expanded = this.expanded.filter(x => children.indexOf(x) === -1);
+    children.forEach(ch => {
+      ch.isExpanded = false;
+      this.removeFromExpanded(ch);
+    });
+  }
+
+  nodeClicked($event): void {
+    this.selectedNodeChanged.emit($event);
+  }
+
+  insertAt(array, index, arrayToInsert): void {
+    Array.prototype.splice.apply(array, [index, 0].concat(arrayToInsert));
+    return array;
   }
 }
 

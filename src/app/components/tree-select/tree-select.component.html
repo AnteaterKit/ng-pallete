@@ -1,7 +1,7 @@
 <div>
   <div>
     <input-field>
-      <input sh-input (click)="onClick($event)" />
+      <input sh-input [value]='displayWith(selectedNode)' (click)="onClick($event)" />
     </input-field>
   </div>
 </div>

@@ -13,6 +13,7 @@
   .tree-node-wrapper {
     display: flex;
     align-items: flex-start;
+    align-items: center;
     padding: 0 0 4px;
     outline: none;
   }
@@ -27,8 +28,28 @@
     }
     &__content:hover {
       cursor: pointer;
-      background-color: rgb(189, 184, 184);
+      background-color: rgb(247, 245, 245);
     }
+  }
+
+  .arrow-wrapper {
+   cursor: pointer;
+  }
+
+  .arrow {
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+  }
+
+  .arrow-right img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .arrow-down img {
+    width: 15px;
+    height: 15px;
   }
 
 }
