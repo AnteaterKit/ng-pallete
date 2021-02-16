@@ -1,0 +1,34 @@
+@import '../../core/theme/theming.scss';
+
+@mixin tree-select-theme($theme) {
+  .tree-select {
+    background-color: white;
+  }
+
+  .tree-node-indent {
+    display: inline-block;
+    width: 24px;
+  }
+
+  .tree-node-wrapper {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 0 4px;
+    outline: none;
+  }
+
+  .tree-node {
+    &__content {
+      padding: 0 4px;
+      width: 100%;
+      font-size: 14px;
+      min-height: 24px;
+      line-height: 24px;
+    }
+    &__content:hover {
+      cursor: pointer;
+      background-color: rgb(189, 184, 184);
+    }
+  }
+
+}

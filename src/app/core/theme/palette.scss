@@ -135,7 +135,7 @@ $mat-grey: (
   )
 );
 
-// Background палитра для светлой темы.
+// Background для темы.
 $theme-background: (
   background: map_get($mat-grey, 50),
   hover: rgba(black, 0.04),
@@ -144,7 +144,7 @@ $theme-background: (
   card-border: map_get($mat-grey, 500),
 );
 
-// Foreground палитра.
+// Foreground для темы.
 $theme-foreground: (
   base: black,
   disabled-button: rgba(black, 0.26),

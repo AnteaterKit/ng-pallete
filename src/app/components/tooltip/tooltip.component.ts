@@ -91,6 +91,7 @@ export class TooltipComponent implements OnInit {
   visible = false;
   constructor(public cdr: ChangeDetectorRef) { }
   overlayRef: any;
+
   ngOnInit(): void {
   }
 

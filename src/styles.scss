@@ -11,6 +11,7 @@
 @import './app/components/checkbox/checkbox-theme.component.scss';
 @import './app/components/card/card.component.scss';
 @import './app//components/autocomplete/autocomplete-theme.scss';
+@import './app/components/tree-select/tree-select.component.scss';
 
 @import '~@angular/cdk/overlay-prebuilt.css';
 
@@ -24,7 +25,7 @@
 
 
 $primary: palette($primary);
-$accent:  palette($accent, A200, A100, A400);
+$accent:  palette($accent, A200);
 $warn:  palette($warn);
 
 $theme: theme($primary, $accent, $warn);
@@ -345,11 +346,13 @@ $typography: typography-config();
 
 @include card-color($theme);
 
-@include mat-base-typography($typography);
+@include base-typography($typography);
 
 @include sh-autocomplete-theme($theme);
 
 @include colors($theme);
+
+@include tree-select-theme($theme);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Roboto", "Helvetica Neue", sans-serif; }

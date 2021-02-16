@@ -51,8 +51,11 @@ const routes: Routes = [
   {
     path: 'tooltip',
     loadChildren:  () => import('./modules/tooltips/tooltips.module').then(x => x.TooltipsModule)
-  }
-  ,
+  },
+  {
+    path: 'treeselect',
+    loadChildren:  () => import('./modules/uitreeselect/uitreeselect.module').then(x => x.UitreeselectModule)
+  },
   {
     path: 'ngabout',
     children: [

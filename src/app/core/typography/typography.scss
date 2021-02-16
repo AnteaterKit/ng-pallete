@@ -34,7 +34,7 @@
   @return map-merge($config, (font-family: $font-family));
 }
 
-@mixin mat-base-typography($config) {
+@mixin base-typography($config) {
   .h1 {
     font-size: 96px;
     font-size: 600;
