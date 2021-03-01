@@ -1,4 +1,17 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from "@angular/core";
+import { DOCUMENT } from "@angular/common";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Inject, Input, NgZone, OnChanges, OnInit, Output, QueryList, SimpleChanges, ViewEncapsulation } from "@angular/core";
+import { fromEvent, merge, Subscription } from "rxjs";
+import { auditTime } from "rxjs/operators";
+
+enum RespondEvents {
+  resize = 'resize',
+  scroll = 'scroll',
+  touchstart = 'touchstart',
+  touchmove = 'touchmove',
+  touchend = 'touchend',
+  pageshow = 'pageshow',
+  load = 'LOAD'
+}
 
 @Component({
   selector: 'sider',
@@ -28,18 +41,56 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, In
     '[style.width]': 'widthSetting'
   }
 })
-export class SiderComponent implements OnInit {
+export class SiderComponent implements OnInit, OnChanges {
   @Input() width: string | number = 300;
+  @Input() layout: any;
   @Input() collapsedWidth = 55;
   @Input() collapsed = false;
   @Output() collapsedChange: EventEmitter<boolean> = new EventEmitter();
 
   widthSetting: string | number;
+  private positionChangeSubscription: Subscription = Subscription.EMPTY;
+  private timeout?: number;
+  private document: Document;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef,  private ngZone: NgZone, @Inject(DOCUMENT) doc) {
+    this.document = doc;
+  }
 
   ngOnInit(): void {
     this.updateWidth();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const { layout } = changes;
+    console.log(layout);
+    if (layout) {
+      this.registerListeners();
+    }
+  }
+
+  registerListeners(): void {
+    this.removeListeners();
+    console.log(this.layout);
+    this.positionChangeSubscription =
+       merge(
+        ...Object.keys(RespondEvents).map(evName => fromEvent(this.document, evName))
+      )
+        .pipe(auditTime(20))
+        .subscribe(e => this.updatePosition(e as Event));
+    this.timeout = setTimeout(() => this.updatePosition({} as Event));
+
+  }
+
+  removeListeners(): void {
+    clearTimeout(this.timeout);
+    this.positionChangeSubscription.unsubscribe();
+  }
+
+  updatePosition(e: Event): void {
+   // console.log(this.document.pageYOffset);
+   //this.document.pageYOffset;
+    //el.
   }
 
   collapsedChanged(): void {

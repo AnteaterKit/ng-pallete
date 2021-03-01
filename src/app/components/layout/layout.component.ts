@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ContentChildren, QueryList, ViewEncapsulation } from "@angular/core";
+import { ChangeDetectionStrategy, Component, ContentChildren, ElementRef, QueryList, ViewChild, ViewEncapsulation } from "@angular/core";
 import { SiderComponent } from './sider.component';
 
 @Component({
@@ -7,7 +7,7 @@ import { SiderComponent } from './sider.component';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  template: ` <ng-content></ng-content> `,
+  template: `<ng-content></ng-content>`,
   host: {
     '[class.layout-has-sider]': 'listOfShSiderComponent.length > 0',
     '[class.layout]': 'true'

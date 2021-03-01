@@ -43,7 +43,7 @@ import { takeUntil } from 'rxjs/operators';
    host: {
     '[class.input-addon-wrapper]': `isAddOn`,
     '[class.input-prefix-wrapper]': `isAffix`,
-    '[class.input-focused]': `focused && !isAffix`,
+    '[class.input-focused]': `(focused && !isAffix) || active`,
     '[class.input-focused-affix]': `focused && isAffix`
   }
 })
@@ -52,6 +52,7 @@ export class InputFieldComponent implements OnInit, OnChanges, OnDestroy  {
   @Input() shPrefix?: string | TemplateRef<void>;
   @Input() shSuffix?: string | TemplateRef<void>;
   @Input() shAddonSuffix?: string | TemplateRef<void>;
+  @Input() active = false;
 
   isAffix = false;
   isAddOn = false;

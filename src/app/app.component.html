@@ -14,8 +14,8 @@
   </my-header>
 
 
-  <layout>
-    <sider *ngIf='showMenu' (collapsedChange)='collapsedChange($event)'>
+  <layout #siderlayout>
+    <sider *ngIf='showMenu' [layout]='siderlayout' (collapsedChange)='collapsedChange($event)'>
       <ul style="border-right: 1px solid #f0f0f0;" [collapsed]='collapsed' menu>
         <li routerLink="/uikit" menu-item>
           <img src="../assets/icons/uikit/uikit.svg" />

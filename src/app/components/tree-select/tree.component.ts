@@ -8,14 +8,12 @@ import { TreeNode } from './tree-select.model';
   <ng-template
       #overlay='cdkConnectedOverlay'
       cdkConnectedOverlay
-      nzConnectedOverlay
       [cdkConnectedOverlayOrigin]='origin'
       [cdkConnectedOverlayOpen]='visible'
       [cdkConnectedOverlayPositions]='positions'
-      [cdkConnectedOverlayPush]='true',
-      (detach)='hide()'
+      [cdkConnectedOverlayPush]='false',
     >
-    <div [style.min-width.px]='minWidth' class='tree-select'>
+    <div [style.min-width.px]='minWidth' class='tree-select' style="box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);">
       <div *ngFor='let item of expanded' >
         <tree-node
           [node]='item'
@@ -30,20 +28,16 @@ import { TreeNode } from './tree-select.model';
   `,
 })
 export class InternalTreeSelectComponent implements OnInit {
+  @Output()
+  selectedNodeChanged = new EventEmitter<TreeNode>();
   datasource: Array<TreeNode> = [];
   expanded: Array<TreeNode> = [];
   minWidth = 120;
-  // Директива для упрощения декларативного создания наложения с помощью FlexibleConnectedPositionStrategy
   @ViewChild('overlay', { static: false }) overlay!: CdkConnectedOverlay;
-  // Директива для использования элемента в качестве источника для наложения с помощью ConnectedPositionStrategy.
   origin!: CdkOverlayOrigin;
   positions = [new ConnectionPositionPair({ originX: 'start', originY: 'bottom' },
     { overlayX: 'start', overlayY: 'top' }, 0, 0)];
   visible = false;
-
-  @Output()
-  selectedNodeChanged = new EventEmitter<TreeNode>();
-
 
   constructor(public cdr: ChangeDetectorRef, public elementRef: ElementRef) { }
 

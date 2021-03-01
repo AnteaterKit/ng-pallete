@@ -21,6 +21,9 @@ export const TREE_SELECT_VALUE_ACCESSOR: ExistingProvider = {
 export class TreeSelectComponent implements OnInit, ControlValueAccessor {
   @Input()
   datasource = [];
+  @Input()
+  disabled = false;
+  active = false;
   componentRef: ComponentRef<InternalTreeSelectComponent>;
   component: InternalTreeSelectComponent;
   overlayBackdropClickSubscription: Subscription;
@@ -32,7 +35,6 @@ export class TreeSelectComponent implements OnInit, ControlValueAccessor {
   }
   constructor(  private elementRef: ElementRef,
                 private hostView: ViewContainerRef,
-                private renderer: Renderer2,
                 private resolver: ComponentFactoryResolver,
                 @Optional() @Inject(DOCUMENT) private document: any) { }
 
@@ -56,6 +58,7 @@ export class TreeSelectComponent implements OnInit, ControlValueAccessor {
     this.component = this.componentRef.instance as InternalTreeSelectComponent;
     this.component.setDataSource(this.datasource);
     this.component.setOverlayOrigin({ elementRef: this.elementRef });
+    this.active = true;
     this.selectedNodeChangedSubscription = this.component.selectedNodeChanged.subscribe(x => {
       this.selectedNode = x;
       this.closeOverlay();
@@ -86,6 +89,7 @@ export class TreeSelectComponent implements OnInit, ControlValueAccessor {
     if ( this.selectedNodeChangedSubscription) {
       this.selectedNodeChangedSubscription.unsubscribe();
     }
+    this.active = false;
     this.component.hide();
     this.componentRef.destroy();
     this.componentRef = undefined;
@@ -116,7 +120,7 @@ export class TreeSelectComponent implements OnInit, ControlValueAccessor {
     this.onTouched = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
-
+    this.disabled = isDisabled;
   }
 
   findNode(node, search): TreeNode {

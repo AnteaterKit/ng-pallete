@@ -15,17 +15,13 @@
   ));
 
   // Для каждого оттенка добавляет контрастный цвет.
-  @each $hue, $color in $base-palette {
-    $result: map_merge($result, (
-      '#{$hue}-contrast': contrast($base-palette, $hue)
-    ));
-  }
-
+ 
+  @debug $result;
   @return $result;
 }
 
 // генерирует темы приложения
-@function theme ($primary, $accent: null, $warn: mat-palette($mat-red)) {
+@function theme ($primary, $accent, $warn: palette($mat-red)) {
   $result: (
     primary: $primary,
     accent: $accent,
