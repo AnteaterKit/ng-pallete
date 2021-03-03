@@ -1,76 +1,66 @@
-@function typography-level(
-  $font-size,
-  $line-height: $font-size,
-  $font-weight: 400,
-  $font-family: null,
-  $letter-spacing: normal) {
-
-  @return (
-    font-size: $font-size,
-    line-height: $line-height,
-    font-weight: $font-weight,
-    font-family: $font-family,
-    letter-spacing: $letter-spacing
-  );
-}
 
 @function typography-config(
   $font-family:   'Roboto',
-  $button: typography-level(14px, 14px, 500)
-) {
+  $button: (
+    font-size: 14px,
+    font-weight: 500,
+    font-family: $font-family,
+  )
+  
+  ) {
+
 
   $config: (
     button: $button
   );
-
-  @each $key, $level in $config {
-    @if map-get($level, font-family) == null {
-      $new-level: map-merge($level, (font-family: $font-family));
-      $config: map-merge($config, ($key: $new-level));
-    }
-  }
-
-  // Add the base font family to the config.
+  @debug($config);
+  @debug(map-merge($config, (font-family: $font-family)));
   @return map-merge($config, (font-family: $font-family));
 }
 
 @mixin base-typography($config) {
-  .h1 {
+  .uikit {
+    &-h1 {
+      font-size: 99px;
+    }
+  }
+  .h1 .uikit-h1 {
     font-size: 96px;
-    font-size: 600;
+    font-weight: 600;
   }
   .h2 {
     font-size: 60px;
-    font-size: 600;
+    font-weight: 600;
   }
   .h3 {
     font-size: 48px;
-    font-size: 600;
+    font-weight: 600;
   }
   .h4 {
     font-size: 34px;
-    font-size: 500;
+    font-weight: 500;
   }
   .h5 {
     font-size: 24px;
-    font-size: 500;
+    font-weight: 500;
   }
   .h6 {
     font-size: 20px;
-    font-size: 500;
+    font-weight: 500;
   }
   .subtitle {
     font-size: 16px;
-    font-size: 600;
+    font-weight: 600;
   }
   .body {
-    font-size: 16px;
+    font-weight: 16px;
   }
+
   .caption {
-    font-size: 12px;
+    font-weight: 12px;
   }
   .overline {
-    font-size: 12px;
+    font-weight: 12px;
   }
 
 }
