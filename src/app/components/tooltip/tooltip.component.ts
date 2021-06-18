@@ -87,7 +87,7 @@ export class TooltipComponent implements OnInit {
   // Директива для использования элемента в качестве источника для наложения с помощью ConnectedPositionStrategy.
   origin!: CdkOverlayOrigin;
   positions = [new ConnectionPositionPair({ originX: 'center', originY: 'top' },
-                                         { overlayX: 'center', overlayY: 'bottom' },  0, -16)];
+                                         { overlayX: 'center', overlayY: 'bottom' },  0, -16,  '')];
   visible = false;
   constructor(public cdr: ChangeDetectorRef) { }
   overlayRef: any;

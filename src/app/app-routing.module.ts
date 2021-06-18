@@ -100,6 +100,10 @@ const routes: Routes = [
   {
     path: 'icons',
     loadChildren:  () => import('./modules/icons/icons.module').then(x => x.IconsModule)
+  },
+  {
+    path: 'editor',
+    loadChildren:  () => import('./modules/editor/editor.module').then(x => x.EditorModule)
   }
 
 

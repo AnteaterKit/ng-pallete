@@ -6,7 +6,6 @@ background-color: white; height: 100%;">
 <div style="margin: 20px">
   <div class='wrap'>
     <my-select [(ngModel)]='value'>
-
       <my-option *ngFor='let i of dataSource' [label]='i.label' [value]='i.value'></my-option>
     </my-select>
   </div>
